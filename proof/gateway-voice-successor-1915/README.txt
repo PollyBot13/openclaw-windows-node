@@ -43,3 +43,6 @@ using evidence-only Git attributes; B helper hashes are in its build-provenance.
 These task-specific sources explain the proof; they are not turnkey commands or
 authority to change shared Gateways. Manifest hashes are local manual evidence,
 not signed attestations, trusted execution or complete proof-pool certification.
+
+Published source commit: 8815f4d5649bb97edbec41ff549c1d8dfcec8c33
+The entire tracked source tree is identical to the locally tested/reviewed62cbade5 tree. Connected GitHub publication creates new commit metadata; no new execution under that metadata is claimed. See PUBLISHED-SOURCE-CORRESPONDENCE.json. Hosted CI remains required.

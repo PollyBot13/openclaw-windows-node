@@ -1,0 +1,15 @@
+{
+  "publishedSourceHead": "8815f4d5649bb97edbec41ff549c1d8dfcec8c33",
+  "testedLocalHead": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "sourceTree": "0b44bb3fecf55fcf1426d585c01fa616ec0d9fe0",
+  "exactEntireTrackedTreeMatch": true,
+  "base": "a4dd026cc5f85a444a0fcd05eef5b86282dbda8c",
+  "originalFeatureParent": "e8e0c08d873499127556ce387a22c30ae06e4ff3",
+  "publication": "Connected GitHub API created new commit metadata. The original feature is retained as an additional merge parent.",
+  "assurance": "Source correspondence, not a new source-review, test or native execution under the published commit metadata. All recorded tests/reviews/binaries retain their actual local-head association.",
+  "remaining": [
+    "Required hosted CI on published head",
+    "Signed clean-install/upgrade proof",
+    "Native delivery/observation limits documented in NATIVE-SUMMARY.json"
+  ]
+}
