@@ -1,0 +1,27 @@
+{
+  "head": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "tree": "0b44bb3fecf55fcf1426d585c01fa616ec0d9fe0",
+  "configuration": "Debug",
+  "rid": "win-x64",
+  "buildInvocation": "final2-full-build/invocation.json",
+  "buildInvocationSha256": "F86F011912EA100FA64785F17CE528779EECF0230E3A549E915E22D3AF9AE1FC",
+  "files": [
+    {
+      "name": "OpenClaw.Tray.WinUI.exe",
+      "sha256": "851852C32460F2352CC7B5FEE6EE16083F71479D8098B0A191EA259F90822DDC"
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.dll",
+      "sha256": "488392CB23CCBB14D936548CD8225B6A6C990C1FCF95628439073B8DB78231E6"
+    },
+    {
+      "name": "OpenClaw.Shared.dll",
+      "sha256": "E63208534858235E4FC26AE809892EDEF43C038093767A43EC10084B12A93F65"
+    },
+    {
+      "name": "OpenClaw.Connection.dll",
+      "sha256": "A6073A80F3134F65993F2534ADD58BDB806DF3842895AFCBB9E19A0436B572D8"
+    }
+  ],
+  "association": "manually recorded source/build/files; not signed attestation"
+}

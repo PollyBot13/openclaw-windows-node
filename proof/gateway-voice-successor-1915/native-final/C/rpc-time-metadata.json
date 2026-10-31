@@ -1,0 +1,23 @@
+[
+  {
+    "event": "production_rpc_intent",
+    "method": "tts.speak",
+    "dateTimeText": "2026-10-31 22:16:41.131",
+    "localTimeText": "22:16:41.131",
+    "timestampInterpretation": "Windows task-private diagnostic timestamp; raw log and credentials not exported"
+  },
+  {
+    "event": "production_rpc_intent",
+    "method": "tts.speak",
+    "dateTimeText": "2026-10-31 22:38:46.803",
+    "localTimeText": "22:38:46.803",
+    "timestampInterpretation": "Windows task-private diagnostic timestamp; raw log and credentials not exported"
+  },
+  {
+    "event": "production_rpc_intent",
+    "method": "tts.speak",
+    "dateTimeText": "2026-10-31 22:39:22.846",
+    "localTimeText": "22:39:22.846",
+    "timestampInterpretation": "Windows task-private diagnostic timestamp; raw log and credentials not exported"
+  }
+]

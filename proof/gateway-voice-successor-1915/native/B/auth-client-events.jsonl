@@ -1,0 +1,82 @@
+{"at":"2026-10-31T20:24:21.6983692+00:00","name":"helper_start","details":{"command":"provision","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:24:22.2325156+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:22.3189422+00:00","name":"connection_failure","details":{"kind":"Auth"}}
+{"at":"2026-10-31T20:24:22.3201775+00:00","name":"connection_status","details":{"status":"Error"}}
+{"at":"2026-10-31T20:24:22.3229163+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:23.4392782+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:23.4430609+00:00","name":"connection_failure","details":{"kind":"Auth"}}
+{"at":"2026-10-31T20:24:23.4437478+00:00","name":"connection_status","details":{"status":"Error"}}
+{"at":"2026-10-31T20:24:23.4444793+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:25.6148994+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:25.6187394+00:00","name":"connection_failure","details":{"kind":"Auth"}}
+{"at":"2026-10-31T20:24:25.6196388+00:00","name":"connection_status","details":{"status":"Error"}}
+{"at":"2026-10-31T20:24:25.6206451+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:30.6142107+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:30.6176341+00:00","name":"connection_failure","details":{"kind":"Auth"}}
+{"at":"2026-10-31T20:24:30.6184128+00:00","name":"connection_status","details":{"status":"Error"}}
+{"at":"2026-10-31T20:24:30.6195322+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:37.3387181+00:00","name":"pairing_not_ready","details":{"label":"provisioning-control","pairingRequired":false,"requestId":null}}
+{"at":"2026-10-31T20:24:37.3453988+00:00","name":"helper_failed","details":{"exceptionType":"SafeFailure","classification":"pairing_not_ready_provisioning-control"}}
+{"at":"2026-10-31T20:24:58.2876132+00:00","name":"helper_start","details":{"command":"provision","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:24:58.3276155+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:58.4410341+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:24:58.4425938+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:24:58.4676234+00:00","name":"pairing_not_ready","details":{"label":"provisioning-control","pairingRequired":true,"requestId":"928741cf-13a8-4782-9c76-929a8ebc3a1e"}}
+{"at":"2026-10-31T20:24:58.4712754+00:00","name":"helper_failed","details":{"exceptionType":"SafeFailure","classification":"pairing_not_ready_provisioning-control"}}
+{"at":"2026-10-31T20:25:05.8338416+00:00","name":"helper_start","details":{"command":"provision","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:25:05.8742625+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:05.9810891+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:06.0231561+00:00","name":"actual_hello_grants","details":{"label":"provisioning-control","scopes":["operator.admin","operator.pairing"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:06.0292592+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.0483218+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.0498527+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.1483888+00:00","name":"pairing_approval_intent","details":{"label":"allowed-app","method":"device.pair.approve"}}
+{"at":"2026-10-31T20:25:06.150343+00:00","name":"production_rpc_intent","details":{"method":"device.pair.approve"}}
+{"at":"2026-10-31T20:25:06.1622771+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.1824199+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:06.2736254+00:00","name":"actual_hello_grants","details":{"label":"allowed-app","scopes":["operator.admin","operator.pairing"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:06.2767936+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.2947605+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.2952868+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.3845446+00:00","name":"pairing_approval_intent","details":{"label":"future-readonly-v2","method":"device.pair.approve"}}
+{"at":"2026-10-31T20:25:06.3854926+00:00","name":"production_rpc_intent","details":{"method":"device.pair.approve"}}
+{"at":"2026-10-31T20:25:06.3953238+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.4253801+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:06.5110922+00:00","name":"actual_hello_grants","details":{"label":"future-readonly-v2","scopes":["operator.admin","operator.pairing"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:06.5209038+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.5213729+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.5223947+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.524681+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.7285159+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:06.8244364+00:00","name":"actual_hello_grants","details":{"label":"future-readonly-device-token-bound","scopes":["operator.admin","operator.pairing"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:06.8250121+00:00","name":"self_rotate_intent","details":{"method":"device.token.rotate","role":"operator","scopes":["operator.read"]}}
+{"at":"2026-10-31T20:25:06.8260137+00:00","name":"production_rpc_intent","details":{"method":"device.token.rotate"}}
+{"at":"2026-10-31T20:25:06.833956+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.8344765+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:06.8366304+00:00","name":"self_rotate_issued_and_persisted","details":{"role":"operator","scopes":["operator.read"],"tokenPrinted":false}}
+{"at":"2026-10-31T20:25:06.8380357+00:00","name":"connection_status","details":{"status":"Disconnected"}}
+{"at":"2026-10-31T20:25:06.8399042+00:00","name":"helper_complete","details":{"command":"provision"}}
+{"at":"2026-10-31T20:25:13.4566933+00:00","name":"helper_start","details":{"command":"check-readonly","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:25:13.5027484+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:13.6177387+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:13.6513082+00:00","name":"actual_hello_grants","details":{"label":"allowed-positive","scopes":["operator.admin","operator.pairing"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:13.6739949+00:00","name":"production_rpc_intent","details":{"method":"tts.speak"}}
+{"at":"2026-10-31T20:25:13.7521242+00:00","name":"allowed_synthesis_positive","details":{"provider":"openai","mime":"audio/wav","bytes":128044,"backendBefore":0,"backendAfter":1,"delta":1,"played":false}}
+{"at":"2026-10-31T20:25:13.754031+00:00","name":"connection_status","details":{"status":"Connecting"}}
+{"at":"2026-10-31T20:25:13.7767555+00:00","name":"connection_status","details":{"status":"Connected"}}
+{"at":"2026-10-31T20:25:13.8711279+00:00","name":"actual_hello_grants","details":{"label":"readonly-reconnected-no-shared-token","scopes":["operator.read"],"ttsStatusAdvertised":true,"ttsSpeakAdvertised":true}}
+{"at":"2026-10-31T20:25:13.8722197+00:00","name":"production_rpc_intent","details":{"method":"tts.status"}}
+{"at":"2026-10-31T20:25:13.9859741+00:00","name":"readonly_tts_status_success","details":{"provider":"openai","IsReady":true}}
+{"at":"2026-10-31T20:25:13.9934098+00:00","name":"readonly_production_preflight","details":{"classification":"PermissionRequired","backendBefore":1,"backendAfter":1,"delta":0}}
+{"at":"2026-10-31T20:25:13.9981304+00:00","name":"readonly_raw_rpc_intent","details":{"method":"tts.speak","purpose":"real Gateway denial independent of Companion preflight"}}
+{"at":"2026-10-31T20:25:13.999269+00:00","name":"production_rpc_intent","details":{"method":"tts.speak"}}
+{"at":"2026-10-31T20:25:14.0049461+00:00","name":"readonly_raw_gateway_result","details":{"classification":"GatewayPermissionRequired","backendBefore":1,"backendAfter":1,"delta":0}}
+{"at":"2026-10-31T20:25:14.0087385+00:00","name":"helper_complete","details":{"command":"check-readonly"}}
+{"at":"2026-10-31T20:25:14.1089183+00:00","name":"helper_start","details":{"command":"create-profile","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:25:15.0072924+00:00","name":"settings_persistence_verified","details":{"exists":true,"urlPort":19515,"UseGatewayVoice":true,"NodeTtsEnabled":true,"NodeSttEnabled":false,"EnableMcpServer":true,"EnableNodeMode":false,"AutoStart":false,"GlobalHotkeyEnabled":false,"VoiceTtsEnabled":false,"EnableManagedLocalGatewayAutoRepair":false}}
+{"at":"2026-10-31T20:25:15.008573+00:00","name":"fresh_app_profile_created","details":{"manualGateway":true,"managedWslOwnership":false,"nativeOwnership":false,"sharedGatewayCredential":false,"useGatewayVoice":true,"tts":true,"stt":false,"node":false,"mcp":true,"automaticSpeech":false,"autoRepair":false,"autorun":false,"hotkey":false}}
+{"at":"2026-10-31T20:25:15.0095245+00:00","name":"helper_complete","details":{"command":"create-profile"}}
+{"at":"2026-10-31T20:25:15.1092748+00:00","name":"helper_start","details":{"command":"set-profile-relay","assemblyMode":"verified existing DLLs; no product rebuild"}}
+{"at":"2026-10-31T20:25:15.240011+00:00","name":"settings_persistence_verified","details":{"exists":true,"urlPort":19516,"UseGatewayVoice":true,"NodeTtsEnabled":true,"NodeSttEnabled":false,"EnableMcpServer":true,"EnableNodeMode":false,"AutoStart":false,"GlobalHotkeyEnabled":false,"VoiceTtsEnabled":false,"EnableManagedLocalGatewayAutoRepair":false}}
+{"at":"2026-10-31T20:25:15.2413009+00:00","name":"task_profile_relay_selected","details":{"port":19516,"identityPreserved":true,"managedOwnership":false}}
+{"at":"2026-10-31T20:25:15.2423262+00:00","name":"helper_complete","details":{"command":"set-profile-relay"}}

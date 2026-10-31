@@ -1,0 +1,54 @@
+[
+  {
+    "attempt": "inactive-target-red",
+    "result": "6 intended failures /2 positives; fixed at dc7583bd; green playback27/27"
+  },
+  {
+    "attempt": "permission-red",
+    "result": "Build file lock from owned app31972; zero tests. Owned app verified/stopped, attempt retained locally."
+  },
+  {
+    "attempt": "permission-red-after-close",
+    "result": "4 permission cases fail on actual Saved/admission; permission-admission-red adds1 failing unsaved-status case. Fixed at62cbade5; green14/14."
+  },
+  {
+    "attempt": "canonical-review-1",
+    "result": "Cleared-target P2 found and fixed; incomplete context coverage retained."
+  },
+  {
+    "attempt": "canonical-review-2..6",
+    "result": "Oversized input/preflight refusals and incomplete owner allocations retained. Review6-final found real permission P2, fixed at62cbade5."
+  },
+  {
+    "attempt": "canonical-review-7",
+    "result": "Full34-file P0-P3 allocation and all integration groups complete, scoped-clean, zero findings."
+  },
+  {
+    "attempt": "native relay",
+    "result": "Existing Relay.dll blocked by Windows Application Control0x800711C7. No bypass. Direct private Gateway used; downstream delivery proof remains unavailable."
+  },
+  {
+    "attempt": "native D initial",
+    "result": "Non-finite bounds serialization failed while desktop unavailable. After user ready, DC candidate scan passed0; final62cbade5 scan also passed0."
+  },
+  {
+    "attempt": "native-final observer001",
+    "result": "SetupOrObservationFailed/UnauthorizedAccess0x80070005. Status reader corrected to allow atomic-file delete sharing; same observer binary then calibrated successfully."
+  },
+  {
+    "attempt": "native-final retirement001/002",
+    "result": "Near-timeout release retained as limited; timed request5 released47.04seconds after action start. Bounded no observed render after release and restoration, with limits in NATIVE-SUMMARY.json."
+  },
+  {
+    "attempt": "Shared/Connection failures",
+    "result": "1 symlink privilege failure and3 migration-checker failures reproduce on unchanged main. No assertions/skips/Windows policy altered."
+  },
+  {
+    "attempt": "original CI",
+    "result": "Cancellation assertion remains unclassified despite local main/final passes; no flaky/fixed claim."
+  },
+  {
+    "attempt": "installer",
+    "result": "Signed fresh install and v2026.9.8-1 upgrade unrun. Required pool remains blocked."
+  }
+]

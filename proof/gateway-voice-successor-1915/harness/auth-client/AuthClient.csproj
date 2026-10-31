@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><UseWPF>true</UseWPF><TargetFramework>net10.0-windows10.0.22621.0</TargetFramework><RuntimeIdentifier>win-x64</RuntimeIdentifier><PlatformTarget>x64</PlatformTarget><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><IsPackable>false</IsPackable><ProductBin>$(MSBuildThisFileDirectory)..\..\gateway-voice-successor-20261031\src\OpenClaw.Tray.WinUI\bin\Debug\net10.0-windows10.0.22621.0\win-x64</ProductBin></PropertyGroup>
+ <ItemGroup>
+  <Reference Include="OpenClaw.Shared"><HintPath>$(ProductBin)\OpenClaw.Shared.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="OpenClaw.Connection"><HintPath>$(ProductBin)\OpenClaw.Connection.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="OpenClaw.Tray.WinUI"><HintPath>$(ProductBin)\OpenClaw.Tray.WinUI.dll</HintPath><Private>false</Private></Reference>
+ </ItemGroup>
+</Project>
+

@@ -1,0 +1,58 @@
+{
+  "head": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "tree": "0b44bb3fecf55fcf1426d585c01fa616ec0d9fe0",
+  "pid": 41024,
+  "windowId": 7410036,
+  "provider": "openai (local synthetic backend behind real Gateway)",
+  "positiveControl": {
+    "Phase": "positive-preview",
+    "Samples": 768,
+    "FirstSampleUtc": "2026-10-31T21:38:28.0679542+00:00",
+    "LastSampleUtc": "2026-10-31T21:39:15.9780557+00:00",
+    "ActiveSamples": 64,
+    "AboveThresholdSamples": 64,
+    "MaximumPeak": 0.15259518,
+    "QueryErrors": 0
+  },
+  "queryErrors": 0,
+  "timedAttempt": {
+    "backendRequest": 5,
+    "actionStartUtc": "2026-10-31T21:42:24.593Z",
+    "releaseUtc": "2026-10-31T21:43:11.6355003Z",
+    "releaseSecondsAfterActionStart": 47.0425,
+    "permissionPersistedFalse": {
+      "at": "2026-10-31T21:42:29.8024647Z",
+      "NodeTtsEnabled": false,
+      "UseGatewayVoice": true
+    },
+    "restore": {
+      "at": "2026-10-31T21:43:24.9505239Z",
+      "NodeTtsEnabled": true,
+      "UseGatewayVoice": true,
+      "nodeEnabled": false,
+      "microphoneEnabled": false,
+      "automaticSpeechEnabled": false
+    },
+    "renderSamplesAfterRelease": 255,
+    "lastSampleUtc": "2026-10-31T21:43:27.5481742+00:00",
+    "maximumPeakAfterRelease": 0,
+    "renderSamplesAfterRestore": 42,
+    "restoreObservationSeconds": 2.563747,
+    "productionRpcIntentUtc": "2026-10-31T21:42:24.734000+00:00",
+    "lastSampleSecondsAfterIntentPlus60": 2.814174
+  },
+  "visibleProof": "Inspected same Voice page/HWND: generating before removal, ready/idle with Preview and Stop disabled after removal, Preview enabled again after restoration. No Stop or page navigation used during either retirement case.",
+  "accessibility": {
+    "outcome": "Passed",
+    "violations": 0,
+    "additionalExclusions": []
+  },
+  "limits": [
+    "Bounded target-PID render samples, not audible recording or absolute Play-call counts.",
+    "No relay/downstream receipt: backend release is not proof the late audio reached the client.",
+    "First request4 release was near its 60-second intent deadline and is not used to distinguish cancellation from timeout.",
+    "Request5 released before 60 seconds from the input action; post-restoration sampling is about2.6seconds after persisted restore (2.2seconds after phase acknowledgement).",
+    "Actual request-deadline start is not instrumented; recorded comparison is production RPC intent plus60seconds.",
+    "Initial observer attempt failed on task status-file replacement; same observer binary retried after reader delete-sharing fix."
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "SchemaVersion": 1,
+  "StartedUtc": "2026-10-31T21:36:27.8329488+00:00",
+  "Observer": "Target-PID CoreAudio render-session state and peak meter only",
+  "RecordedAudio": false,
+  "MicrophoneOrCaptureEndpointsAccessed": false,
+  "VolumeOrDeviceSettingsChanged": false,
+  "UnrelatedProcessOrEndpointDetailsRetained": false,
+  "Framework": ".NET 10.0.14",
+  "Architecture": "X64",
+  "ThreadApartment": "MTA",
+  "RunnerAssemblySHA256": "3137D2CB1BBCC34803316FEE3D2B1F3CE1085522E48CF4B1ABABA082154CC96D",
+  "Samples": [
+    {
+      "AtUtc": "2026-10-31T21:36:27.8819924+00:00",
+      "ElapsedMs": 49.0061,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.0053881+00:00",
+      "ElapsedMs": 172.4026,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.0675088+00:00",
+      "ElapsedMs": 234.5229,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.1295165+00:00",
+      "ElapsedMs": 296.5302,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.191324+00:00",
+      "ElapsedMs": 358.3376,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.254738+00:00",
+      "ElapsedMs": 421.7514,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.3166433+00:00",
+      "ElapsedMs": 483.6567,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.3798292+00:00",
+      "ElapsedMs": 546.8428,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.4412742+00:00",
+      "ElapsedMs": 608.2881,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.5048371+00:00",
+      "ElapsedMs": 671.8508,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.5684034+00:00",
+      "ElapsedMs": 735.417,
+      "Phase": "positive-preview",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "PeakMax": 0,
+      "AboveThreshold": false,
+      "QueryErrors": 0
+    }
+  ],
+  "Transitions": [
+    {
+      "AtUtc": "2026-10-31T21:36:27.8819924+00:00",
+      "ElapsedMs": 49.0061,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-10-31T21:36:28.5684034+00:00",
+      "ElapsedMs": 735.417,
+      "Phase": "positive-preview",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    }
+  ],
+  "TargetPid": 41024,
+  "TargetExecutable": "OpenClaw.Tray.WinUI.exe",
+  "TargetExecutableSHA256": "851852C32460F2352CC7B5FEE6EE16083F71479D8098B0A191EA259F90822DDC",
+  "DurationLimitMs": 300000,
+  "SamplingIntervalRequestedMs": 50,
+  "LinearPeakThreshold": 0.0001,
+  "NAudioWasapiVersion": "2.3.0.0",
+  "NAudioWasapiSHA256": "A05E371ABF96195770AC4F84653D987D63731FED528E98C7FE0D10CE66E37D7E",
+  "Outcome": "SetupOrObservationFailed",
+  "ErrorType": "System.UnauthorizedAccessException",
+  "ErrorHresult": "0x80070005",
+  "Error": "Access to the path is denied.",
+  "FinishedUtc": "2026-10-31T21:36:28.5714923+00:00",
+  "ElapsedMs": 738.5086,
+  "ExitCode": 2
+}

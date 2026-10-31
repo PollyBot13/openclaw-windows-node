@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "findings",
+  "exit_code": 1,
+  "engine": "codex",
+  "report_produced": true,
+  "reason": null,
+  "reviewer_exit_code": null,
+  "timed_out": false,
+  "usage": {
+    "attempts": 12,
+    "reported_attempts": 12,
+    "unknown_attempts": 0,
+    "partial_attempts": 0,
+    "complete": true,
+    "tokens": {
+      "input_tokens": 2913562,
+      "cached_input_tokens": 62720,
+      "output_tokens": 6885,
+      "reasoning_output_tokens": 5015
+    }
+  }
+}

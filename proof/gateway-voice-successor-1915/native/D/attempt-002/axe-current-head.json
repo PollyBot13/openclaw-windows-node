@@ -1,0 +1,145 @@
+{
+  "SchemaVersion": 1,
+  "Context": "VoiceSettingsPage: Gateway voice enabled and expanded",
+  "StartedUtc": "2026-10-31T21:16:03.7681777+00:00",
+  "ThreadApartment": "MTA",
+  "Framework": ".NET 10.0.14",
+  "OS": "Microsoft Windows 10.0.26300",
+  "ProcessArchitecture": "X64",
+  "RunnerAssemblySHA256": "7646B8C01032B2A09C20235BEAF2B1C77684279AF8B4AF08AECBC1A1A1044C90",
+  "HelperUsage": "Unmodified linked repository AxeHelper.Initialize(pid) and AssertNoAccessibilityErrors(hwnd); no additional exclusions",
+  "TargetPid": 31972,
+  "TargetHwnd": "0x2F0C0A",
+  "TargetExecutable": "OpenClaw.Tray.WinUI.exe",
+  "TargetExecutableSHA256": "C02AA3127CED75B087DA7AB80806DE9E65FB25F25D72B10723030147181603AC",
+  "TargetWindowName": "OpenClaw",
+  "TargetWindowBounds": {
+    "X": 98,
+    "Y": 98,
+    "Width": 2560,
+    "Height": 1720
+  },
+  "TargetWindowVisible": true,
+  "TargetWindowForeground": true,
+  "Controls": [
+    {
+      "AutomationId": "GatewayVoiceToggle",
+      "Name": "Use connected Gateway voice",
+      "ControlType": "ControlType.Button",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": true,
+      "Bounds": {
+        "X": 821,
+        "Y": 868,
+        "Width": 368,
+        "Height": 126
+      },
+      "ToggleState": "On"
+    },
+    {
+      "AutomationId": "GatewayVoiceStatus",
+      "Name": "Gateway selection: openai. Configured providers: openai.",
+      "ControlType": "ControlType.Text",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": false,
+      "Bounds": {
+        "X": 821,
+        "Y": 1146,
+        "Width": 1636,
+        "Height": 32
+      }
+    },
+    {
+      "AutomationId": "GatewayVoiceRefresh",
+      "Name": "Check readiness",
+      "ControlType": "ControlType.Button",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": true,
+      "Bounds": {
+        "X": 821,
+        "Y": 1194,
+        "Width": 247,
+        "Height": 64
+      }
+    },
+    {
+      "AutomationId": "GatewayVoicePreview",
+      "Name": "Preview Gateway voice",
+      "ControlType": "ControlType.Button",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": true,
+      "Bounds": {
+        "X": 1084,
+        "Y": 1194,
+        "Width": 329,
+        "Height": 64
+      }
+    },
+    {
+      "AutomationId": "GatewayVoiceStop",
+      "Name": "Stop",
+      "ControlType": "ControlType.Button",
+      "IsEnabled": false,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": false,
+      "Bounds": {
+        "X": 1429,
+        "Y": 1194,
+        "Width": 105,
+        "Height": 64
+      }
+    }
+  ],
+  "ExpandedDescriptions": [
+    {
+      "AutomationId": "",
+      "Name": "Chat Read Aloud and automatic replies use the Gateway\u0027s configured voice. Text is sent to the Gateway and its speech provider. Keys stay on the Gateway. Local node and MCP speech are unchanged.",
+      "ControlType": "ControlType.Text",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": false,
+      "Bounds": {
+        "X": 821,
+        "Y": 1018,
+        "Width": 1636,
+        "Height": 64
+      }
+    },
+    {
+      "AutomationId": "",
+      "Name": "No automatic local fallback. If unavailable, turn this option off to use your local provider.",
+      "ControlType": "ControlType.Text",
+      "IsEnabled": true,
+      "IsOffscreen": false,
+      "IsKeyboardFocusable": false,
+      "Bounds": {
+        "X": 821,
+        "Y": 1098,
+        "Width": 1636,
+        "Height": 32
+      }
+    }
+  ],
+  "ExpandedStateVerified": true,
+  "ExistingFrameworkExclusions": [
+    "NameIsInformative",
+    "NameExcludesControlType",
+    "NameExcludesLocalizedControlType",
+    "SiblingUniqueAndFocusable"
+  ],
+  "AdditionalExclusions": [],
+  "AxeAssemblyVersion": "2.4.2.0",
+  "AxeAssemblySHA256": "CBF7E8B1C7D17E928C443843C2B10A6BAAE537A14EC77402483AAB393A69794F",
+  "ScanStartedUtc": "2026-10-31T21:16:03.9922897+00:00",
+  "ScanFinishedUtc": "2026-10-31T21:16:04.9876477+00:00",
+  "Outcome": "Passed",
+  "ViolationCount": 0,
+  "RuleIds": [],
+  "FinishedUtc": "2026-10-31T21:16:04.9876682+00:00",
+  "ElapsedMs": 1219.4908,
+  "ExitCode": 0
+}

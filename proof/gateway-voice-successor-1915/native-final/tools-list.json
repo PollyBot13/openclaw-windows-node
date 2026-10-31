@@ -1,0 +1,323 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "tools": [
+      {
+        "name": "system.notify",
+        "description": "Show a Windows toast notification on the node. Args: title (string, default 'OpenClaw'), body (string), subtitle (string), sound (bool, default true). Returns { sent: true }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "system.which",
+        "description": "Resolve executable names to absolute paths by searching PATH (PATHEXT-aware on Windows). Args: bins (string[], required). Returns { bins: { name: resolvedPath, ... } } including only names that were found.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "system.execApprovals.get",
+        "description": "Return the V2 exec approvals snapshot: { path, exists, hash, file: { version, defaults: { security, ask, askFallback, autoAllowSkills }, agents: { agentId: { security, ask, askFallback, autoAllowSkills, allowlist: [{ id, pattern, lastUsedAt?, lastResolvedPath? }] } } } }. Socket credentials are redacted. Pass hash as baseHash to system.execApprovals.set.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "system.execApprovals.set",
+        "description": "Replace the V2 exec approvals file using compare-and-swap. Args: baseHash (required hash from system.execApprovals.get), file (required full { version, defaults, agents } object). Remote updates may preserve or remove existing allowlist grants but cannot add or change grants or set full access. Returns the updated { path, exists, hash, file } snapshot.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "tts.speak",
+        "description": "Speak text aloud on the Windows node. Args: text (string, required), provider ('kokoro'|'piper'|'windows'|'elevenlabs'|'minimax', optional; omit to use the configured TtsProvider setting, default 'kokoro' for fresh installs), voiceId (string, optional; overrides the per-provider configured voice), model (string, optional, cloud providers only), interrupt (bool, default false; interrupts any in-progress playback). When provider is omitted and the configured provider isn't usable (no cloud key, Kokoro voice pack or Piper voice not downloaded), the node falls back to Windows TTS so playback still happens. Explicit provider requests stay strict and do not silently reroute. Returns { spoken, provider (the provider that actually spoke), requestedProvider, fellBack, contentType, durationMs }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "tts.status",
+        "description": "Report TTS provider readiness. No args. Returns { configuredProvider, effectiveProvider (the provider that would run now after fallback), willFallBack (bool), providers: [{ provider ('kokoro'|'piper'|'windows'|'elevenlabs'|'minimax'), readiness ('ready'|'needs-api-key'|'needs-voice'|'voice-not-downloaded'|'unavailable'), isReady (bool) }] }. Carries no PII (no voice ids, no key fragments, no device names). Requires NodeTtsEnabled.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "device.info",
+        "description": "Get static device metadata. No args. Returns { deviceName, modelIdentifier, systemName, systemVersion, appVersion, appBuild, locale }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "device.status",
+        "description": "Get live system health data. Args: sections (string[], optional — subset of ['os','cpu','memory','disk','battery']; omit for all). Returns a map with a 'collectedAt' timestamp and one key per requested section. Each section may contain an 'error' field if collection failed. Also includes legacy fields: thermal, storage, network, uptimeSeconds.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.navigate",
+        "description": "Navigate Workspace or the Settings companion to a specific page (e.g., 'workspace:home', 'workspace:notifications', 'sessions', 'settings'). Args: page (string, required). Returns { navigated, page }. Unknown workspace: routes return a tool error without opening or forwarding a window.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.status",
+        "description": "Get current connection status, manager-owned overall/operator/node state, and gateway info. Returns { connectionStatus, overallState, operatorState, nodeState, nodeConnected, nodePaired, nodePendingApproval, nodeError, gatewayVersion, sessionCount, nodeCount }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.sessions",
+        "description": "List active sessions with optional agent filter. Args: agentId (string, optional). Returns array of { Key, Status, Model, AgeText, tokens }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.agents",
+        "description": "List agents from the connected gateway. Returns the raw agents JSON array.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.nodes",
+        "description": "List connected nodes and their capabilities. Returns array of { DisplayName, NodeId, IsOnline, Platform, CapabilityCount }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.config.get",
+        "description": "Read gateway configuration value at a dot-path. Args: path (string, optional). Returns the config subtree or full config.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.settings.get",
+        "description": "Read a local app setting by name. Args: name (string, required). Returns the setting value.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.settings.set",
+        "description": "Set a local app setting (name and value), persist it, and apply the same reconnect/reload behavior as saving settings in the app UI. Args: name (string, required), value (string, required). Returns { name, value }; runtime apply failures surface as tool errors.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.menu",
+        "description": "Get tray menu state (status including overallState/nodeState/nodeError, session count, node count). Returns array of menu items.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.search",
+        "description": "Search the command palette and return matching commands. Args: query (string, required). Returns array of { Title, Subtitle, Icon }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.dashboard.url",
+        "description": "Build the same gateway dashboard URL the tray opens. Args: path (string, optional). Returns { url, credentialSource, usesSharedGatewayToken, hasTokenQuery }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.chat.snapshot",
+        "description": "READ-ALL: Return the current native chat snapshot for local automation. Args: threadId/sessionKey (string, optional). Returns connection state, compose target, thread summaries, queued outgoing messages, and recent timeline entries including chat text.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.chat.send",
+        "description": "Send a message through the native chat provider. Args: message (string, required), threadId/sessionKey (string, optional; defaults to the current compose/default thread). Returns { sent, threadId, entryCount, turnActive, error? }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.chat.reset",
+        "description": "Reset a chat session through the gateway sessions.reset path. Args: threadId/sessionKey (string, optional; defaults to the current compose/default thread, so no-arg reset clears the active chat). Returns { reset, threadId, error? }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.chat.queue.list",
+        "description": "READ-ALL: List native chat outgoing queue entries. Args: threadId/sessionKey (string, optional; omit to return all queued threads). Returns { defaultThreadId, requestedThreadId, totalCount, selectedThread, threads: [{ threadId, count, messages: [{ id, text, createdAt, sendState, errorText, canCancel }] }] }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.chat.queue.cancel",
+        "description": "Cancel/remove one native chat outgoing queue entry before it is sent. Args: queuedMessageId (string, required), threadId/sessionKey (string, required; use the threadId returned by app.chat.queue.list or app.chat.snapshot). Only Queued/Failed entries can be removed; Sending entries may already have reached the gateway. Returns { canceled, threadId, queuedMessageId, remainingCount, error? }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.status",
+        "description": "READ-ONLY local MCP connection diagnostics. No args. Returns effective mode/state, installed Gateway package version, selected wire protocol and normalized compatibility details, active gateway metadata, operator/node credential resolution, MCP runtime state, browser proxy caveat, pending approval actions, retry hints, and recent diagnostic events.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.gateways",
+        "description": "READ-ONLY saved gateway diagnostics. No args. Returns { activeGatewayId, count, gateways[] } with per-gateway id/name/url, active flag, lastConnected, credential presence booleans, SSH/browser-proxy configuration, and no token values.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.applySetupCode",
+        "description": "Apply a setup/QR code to create or update the active gateway record and connect. Args: setupCode (string, required). Local MCP-only; not advertised to the gateway node transport. Returns { outcome, error, gatewayUrl, connected }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.connectSharedToken",
+        "description": "Connect the tray to a gateway using a shared token. Args: gatewayUrl (string, required), token (string, required). Persists the gateway record and active gateway. Local MCP-only. Returns { outcome, error, gatewayUrl, connected }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.pendingApprovals",
+        "description": "READ-ONLY pending pairing approval snapshot from the connected gateway. No args. Returns { connected, error, totalPending, devicePending[], nodePending[] }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.approveDevicePairing",
+        "description": "Approve a pending device pairing request through the connected operator client. Args: requestId or id (string, required). Local MCP-only. Returns the refreshed pending approvals payload plus decision metadata.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.rejectDevicePairing",
+        "description": "Reject a pending device pairing request through the connected operator client. Args: requestId or id (string, required). Local MCP-only. Returns the refreshed pending approvals payload plus decision metadata.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.approveNodePairing",
+        "description": "Approve a pending Windows node pairing or command-trust request through the connected operator client. Args: requestId or id (string, required). Local MCP-only. Returns the refreshed pending approvals payload plus decision metadata.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.rejectNodePairing",
+        "description": "Reject a pending Windows node pairing or command-trust request through the connected operator client. Args: requestId or id (string, required). Local MCP-only. Returns the refreshed pending approvals payload plus decision metadata.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.reconnect",
+        "description": "Reconnect the active gateway through GatewayConnectionManager. No args. Local MCP-only. Returns { reconnected, error? }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      },
+      {
+        "name": "app.connection.reconnectNode",
+        "description": "Reconnect only the Windows node role for the active gateway through GatewayConnectionManager. No args. Local MCP-only. Returns { reconnected, error? }.",
+        "inputSchema": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {}
+        }
+      }
+    ]
+  }
+}

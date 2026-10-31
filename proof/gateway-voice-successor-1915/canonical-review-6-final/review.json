@@ -1,0 +1,1586 @@
+{
+  "findings": [
+    {
+      "title": "[P2] Retire Gateway speech when the TTS permission is revoked",
+      "body": "permission-and-voice-consent-integration:\n\nTurning off Text-to-speech in Permissions persists `NodeTtsEnabled = false`, but this save handler returns whenever `UseGatewayVoice` is unchanged. An admitted Gateway preview or automatic response therefore remains active: if it is awaiting status, it can still submit `tts.speak` after revocation; if synthesis or playback is underway, the returned audio can continue playing. The admission checks in App and the preview button only check permission before starting. Track TTS permission changes here and cancel active delegated speech when permission is removed, with a permission check before synthesis admission.",
+      "priority": "P2",
+      "confidence": 0.96,
+      "category": "bug",
+      "code_location": {
+        "file_path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+        "line": 71
+      },
+      "source_attribution": null
+    }
+  ],
+  "overall_correctness": "patch is incorrect",
+  "overall_explanation": "Review passes returned. protocol-and-granted-authority: 0 finding(s), chat-lifetime-and-native-playback: 0 finding(s), settings-and-compatibility: 0 finding(s), localized-voice-contract-1: 0 finding(s), localized-voice-contract-2: 0 finding(s), localized-voice-contract-3: 0 finding(s), localized-voice-contract-4: 0 finding(s), localized-voice-contract-5: 0 finding(s), localized-voice-contract-6: 0 finding(s), composition-and-retained-page-integration: 0 finding(s), transport-to-native-effect-integration: 0 finding(s), permission-and-voice-consent-integration: 1 finding(s). See preserved pass reports for provider conclusions.",
+  "overall_confidence": 0.84,
+  "pass_reports": [
+    {
+      "label": "protocol-and-granted-authority",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed all six assigned changes and the supplied integration context. The speech path checks authenticated connection epoch, advertised methods, and granted scopes; correlates responses; sanitizes provider errors; bounds text and decoded audio; and adds no client retry or fallback. The persisted opt-in defaults to false without widening credential scopes. No actionable defects met the requested threshold. This assessment covers supplied source evidence, without runtime or test certification.",
+        "overall_confidence": 0.91,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed all six assigned changes and the supplied integration context. The speech path checks authenticated connection epoch, advertised methods, and granted scopes; correlates responses; sanitizes provider errors; bounds text and decoded audio; and adds no client retry or fallback. The persisted opt-in defaults to false without widening credential scopes. No actionable defects met the requested threshold. This assessment covers supplied source evidence, without runtime or test certification.",
+          "overall_confidence": 0.91
+        },
+        "assignment": {
+          "name": "protocol-and-granted-authority",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+            "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+            "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+            "src/OpenClaw.Shared/SettingsData.cs",
+            "tests/OpenClaw.Shared.Tests/GatewaySpeechTests.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Shared/WebSocketClientBase.cs",
+            "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+            "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs"
+          ],
+          "obligations": [
+            "Verify real issued operator scope/method/epoch admission, request correlation, sanitized errors, bounded audio and no retry/fallback. Inspect persisted opt-in default without widening credentials."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "chat-lifetime-and-native-playback",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "The supplied evidence supports the assigned speech lifecycle and playback changes. Delegated operations are cancelled and fenced against late completion on stop, mute, target changes, disconnect, route opt-out, and disposal. Retained-host callbacks respect page activity, and Gateway audio uses the existing serialized native playback path without changing local provider selection. No actionable defects met the requested threshold. This assessment covers source correctness; no project code or tests were executed.",
+        "overall_confidence": 0.84,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "The supplied evidence supports the assigned speech lifecycle and playback changes. Delegated operations are cancelled and fenced against late completion on stop, mute, target changes, disconnect, route opt-out, and disposal. Retained-host callbacks respect page activity, and Gateway audio uses the existing serialized native playback path without changing local provider selection. No actionable defects met the requested threshold. This assessment covers source correctness; no project code or tests were executed.",
+          "overall_confidence": 0.84
+        },
+        "assignment": {
+          "name": "chat-lifetime-and-native-playback",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml",
+            "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+            "tests/OpenClaw.Tray.Tests/ChatComposerSessionTests.cs",
+            "tests/OpenClaw.Tray.Tests/GatewaySpeechPlaybackTests.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerViewModel.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+            "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+            "src/OpenClaw.Shared/SettingsData.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+            "tests/OpenClaw.Tray.UITests/TestApp.cs",
+            "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+            "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+            "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs"
+          ],
+          "obligations": [
+            "Verify retained-host visibility and effective speech-target updates compose correctly; pending/late operations retire on opt-out, target change, disconnect and disposal; native playback stays serialized and local paths remain distinct. Review combined session regression."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "settings-and-compatibility",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed all six assigned change units against the supplied integration context. Gateway voice remains opt-in, persists without replacing the local provider, and uses the existing consent gate and native playback path. Readiness, preview cancellation, Stop handling, and finite error presentation show no actionable defects meeting the requested threshold. This is a source assessment; no runtime or test execution was performed.",
+        "overall_confidence": 0.87,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed all six assigned change units against the supplied integration context. Gateway voice remains opt-in, persists without replacing the local provider, and uses the existing consent gate and native playback path. Readiness, preview cancellation, Stop handling, and finite error presentation show no actionable defects meeting the requested threshold. This is a source assessment; no runtime or test execution was performed.",
+          "overall_confidence": 0.87
+        },
+        "assignment": {
+          "name": "settings-and-compatibility",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+            "tests/OpenClaw.Tray.Tests/OpenClaw.Tray.Tests.csproj",
+            "tests/OpenClaw.Tray.Tests/SettingsRoundTripTests.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Shared/SettingsData.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+            "tests/OpenClaw.Tray.UITests/TestApp.cs",
+            "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+            "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+            "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs"
+          ],
+          "obligations": [
+            "Verify opt-in persistence, provider preservation, readiness/preview/Stop state, finite error keys, consent and native playback integration. Translation wording and placeholder mappings are reviewed in the complete language-file assignments; App/TestApp composition and retained-host callbacks are also assigned to integration. No automatic fallback or microphone repair."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-1",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed the complete assigned English resource change against the supplied presentation and settings owners. Gateway voice keys and format placeholders match their callers, finite-error messages are covered, and the copy discloses opt-in behavior, provider text transfer, and no automatic local fallback. No actionable defects were identified within this assignment.",
+        "overall_confidence": 0.91,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed the complete assigned English resource change against the supplied presentation and settings owners. Gateway voice keys and format placeholders match their callers, finite-error messages are covered, and the copy discloses opt-in behavior, provider text transfer, and no automatic local fallback. No actionable defects were identified within this assignment.",
+          "overall_confidence": 0.91
+        },
+        "assignment": {
+          "name": "localized-voice-contract-1",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-2",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "The assigned French resource changes contain all keys referenced by the supplied presentation and settings owners, with matching format placeholders. The new copy covers Gateway/provider text disclosure, optional activation, no automatic local fallback, and the finite failure states. No actionable defects were identified in the supplied resource diff.",
+        "overall_confidence": 0.95,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "The assigned French resource changes contain all keys referenced by the supplied presentation and settings owners, with matching format placeholders. The new copy covers Gateway/provider text disclosure, optional activation, no automatic local fallback, and the finite failure states. No actionable defects were identified in the supplied resource diff.",
+          "overall_confidence": 0.95
+        },
+        "assignment": {
+          "name": "localized-voice-contract-2",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-3",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed the complete assigned Dutch resource change against the supplied presentation and settings owners. Required status and failure keys are present, format placeholders match their callers, and the new copy discloses text transmission, Gateway-held keys, and no automatic local fallback. Existing resource text is preserved apart from line-ending changes. No actionable defects were identified.",
+        "overall_confidence": 0.97,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed the complete assigned Dutch resource change against the supplied presentation and settings owners. Required status and failure keys are present, format placeholders match their callers, and the new copy discloses text transmission, Gateway-held keys, and no automatic local fallback. Existing resource text is preserved apart from line-ending changes. No actionable defects were identified.",
+          "overall_confidence": 0.97
+        },
+        "assignment": {
+          "name": "localized-voice-contract-3",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-4",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed the complete assigned pt-BR resource change against the supplied presentation and settings owners. Gateway voice keys and format placeholders match their callers, and the copy covers provider text transmission, optional use, no automatic local fallback, and finite failure states. No actionable defects were identified in the assigned unit. This is a source assessment; runtime and build behavior were not certified.",
+        "overall_confidence": 0.95,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed the complete assigned pt-BR resource change against the supplied presentation and settings owners. Gateway voice keys and format placeholders match their callers, and the copy covers provider text transmission, optional use, no automatic local fallback, and finite failure states. No actionable defects were identified in the assigned unit. This is a source assessment; runtime and build behavior were not certified.",
+          "overall_confidence": 0.95
+        },
+        "assignment": {
+          "name": "localized-voice-contract-4",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/pt-br/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-5",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed the complete assigned zh-cn resource change against the supplied presentation and settings owners. Resource keys and format placeholders match their callers, and the Gateway voice disclosures and finite-error messages preserve the intended meaning. Existing resource values are preserved apart from line-ending changes. No actionable defects were identified. This assessment covers the assigned resource unit only.",
+        "overall_confidence": 0.96,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed the complete assigned zh-cn resource change against the supplied presentation and settings owners. Resource keys and format placeholders match their callers, and the Gateway voice disclosures and finite-error messages preserve the intended meaning. Existing resource values are preserved apart from line-ending changes. No actionable defects were identified. This assessment covers the assigned resource unit only.",
+          "overall_confidence": 0.96
+        },
+        "assignment": {
+          "name": "localized-voice-contract-5",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/zh-cn/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "localized-voice-contract-6",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "Reviewed the complete assigned zh-tw resource change against the supplied presentation and settings owners. The new resource keys, error messages, provider placeholders, and text-sharing/no-local-fallback disclosures match those contracts. Existing values are preserved apart from line-ending changes. No actionable defects were identified. This assessment covers source evidence only.",
+        "overall_confidence": 0.96,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "Reviewed the complete assigned zh-tw resource change against the supplied presentation and settings owners. The new resource keys, error messages, provider placeholders, and text-sharing/no-local-fallback disclosures match those contracts. Existing values are preserved apart from line-ending changes. No actionable defects were identified. This assessment covers source evidence only.",
+          "overall_confidence": 0.96
+        },
+        "assignment": {
+          "name": "localized-voice-contract-6",
+          "kind": "owner",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/Strings/zh-tw/Resources.resw"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+          ],
+          "obligations": [
+            "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "composition-and-retained-page-integration",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "No actionable defects were identified in the assigned changes. The supplied sources support suspend/resume retirement, committed-render speech target updates, inactive-page guards, retained-host target rebinding, and safe teardown under TestApp. Documentation distinguishes source and protocol checks from pending native playback validation. This assessment covers the assigned integration scope; project code and tests were not executed.",
+        "overall_confidence": 0.87,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "No actionable defects were identified in the assigned changes. The supplied sources support suspend/resume retirement, committed-render speech target updates, inactive-page guards, retained-host target rebinding, and safe teardown under TestApp. Documentation distinguishes source and protocol checks from pending native playback validation. This assessment covers the assigned integration scope; project code and tests were not executed.",
+          "overall_confidence": 0.87
+        },
+        "assignment": {
+          "name": "composition-and-retained-page-integration",
+          "kind": "integration",
+          "changes": [
+            "docs/ARCHITECTURE.md",
+            "docs/GATEWAY_VOICE.md",
+            "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+            "tests/OpenClaw.Tray.UITests/SetupNativeChatWarningTests.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerViewModel.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+            "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+            "tests/OpenClaw.Tray.UITests/TestApp.cs"
+          ],
+          "obligations": [
+            "Verify actual WorkspaceWindow suspend/resume, Reactor render commit and ChatComposerSession callbacks, inactive page guards and retained-host target rebind. Verify App/TestApp safety and documentation/test claims. Transport authority/response retirement and settings consent integration are separately assigned to the complete transport composition unit."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "transport-to-native-effect-integration",
+      "report": {
+        "findings": [],
+        "overall_correctness": "patch is correct",
+        "overall_explanation": "No actionable defects were identified in the assigned transport-to-native playback integration. The supplied evidence supports authenticated, epoch-bound request correlation, pending-request retirement on cancellation, bounded audio validation, serialized native playback, and cancellation of retired speech without client retries or local synthesis fallback. This assessment covers source behavior only; runtime and CI certification were outside scope.",
+        "overall_confidence": 0.88,
+        "provider_report": {
+          "findings": [],
+          "overall_correctness": "patch is correct",
+          "overall_explanation": "No actionable defects were identified in the assigned transport-to-native playback integration. The supplied evidence supports authenticated, epoch-bound request correlation, pending-request retirement on cancellation, bounded audio validation, serialized native playback, and cancellation of retired speech without client retries or local synthesis fallback. This assessment covers source behavior only; runtime and CI certification were outside scope.",
+          "overall_confidence": 0.88
+        },
+        "assignment": {
+          "name": "transport-to-native-effect-integration",
+          "kind": "integration",
+          "changes": [
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+            "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+            "src/OpenClaw.Shared/WebSocketClientBase.cs",
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+            "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+            "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+            "src/OpenClaw.Shared/SettingsData.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+            "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+            "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs"
+          ],
+          "obligations": [
+            "Verify actual App auto-response dispatch into the coordinator and authenticated status/synthesis request correlation, SendResponseRequestAsync cancellation/response retirement, response validation and serialized native playback. Check no retry/local fallback and retirement effects at the playback API. Actual UI consent/permission/automatic-response toggles and SetSpeechTarget callers are separately assigned to the complete consent and lifecycle units."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    },
+    {
+      "label": "permission-and-voice-consent-integration",
+      "report": {
+        "findings": [
+          {
+            "title": "[P2] Retire Gateway speech when the TTS permission is revoked",
+            "body": "Turning off Text-to-speech in Permissions persists `NodeTtsEnabled = false`, but this save handler returns whenever `UseGatewayVoice` is unchanged. An admitted Gateway preview or automatic response therefore remains active: if it is awaiting status, it can still submit `tts.speak` after revocation; if synthesis or playback is underway, the returned audio can continue playing. The admission checks in App and the preview button only check permission before starting. Track TTS permission changes here and cancel active delegated speech when permission is removed, with a permission check before synthesis admission.",
+            "priority": "P2",
+            "confidence": 0.96,
+            "category": "bug",
+            "code_location": {
+              "file_path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+              "line": 71
+            },
+            "source_attribution": null
+          }
+        ],
+        "overall_correctness": "patch is incorrect",
+        "overall_explanation": "The supplied settings paths preserve local provider and node/MCP configuration, and Gateway opt-out explicitly retires delegated playback. However, revoking the actual TTS permission does not retire an already admitted operation. Assessment covers the assigned source integration; no runtime or CI certification was performed.",
+        "overall_confidence": 0.94,
+        "provider_report": {
+          "findings": [
+            {
+              "title": "[P2] Retire Gateway speech when the TTS permission is revoked",
+              "body": "Turning off Text-to-speech in Permissions persists `NodeTtsEnabled = false`, but this save handler returns whenever `UseGatewayVoice` is unchanged. An admitted Gateway preview or automatic response therefore remains active: if it is awaiting status, it can still submit `tts.speak` after revocation; if synthesis or playback is underway, the returned audio can continue playing. The admission checks in App and the preview button only check permission before starting. Track TTS permission changes here and cancel active delegated speech when permission is removed, with a permission check before synthesis admission.",
+              "priority": "P2",
+              "confidence": 0.96,
+              "category": "bug",
+              "code_location": {
+                "file_path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+                "line": 71
+              },
+              "source_attribution": null
+            }
+          ],
+          "overall_correctness": "patch is incorrect",
+          "overall_explanation": "The supplied settings paths preserve local provider and node/MCP configuration, and Gateway opt-out explicitly retires delegated playback. However, revoking the actual TTS permission does not retire an already admitted operation. Assessment covers the assigned source integration; no runtime or CI certification was performed.",
+          "overall_confidence": 0.94
+        },
+        "assignment": {
+          "name": "permission-and-voice-consent-integration",
+          "kind": "integration",
+          "changes": [
+            "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs"
+          ],
+          "contexts": [
+            "src/OpenClaw.Tray.WinUI/Presentation/PermissionsPageViewModel.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Presentation/SettingsStore.cs",
+            "src/OpenClaw.Tray.WinUI/Presentation/ISettingsStore.cs",
+            "src/OpenClaw.Shared/SettingsData.cs",
+            "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+            "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+            "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+            "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+            "src/OpenClaw.Shared/GatewaySpeech.cs",
+            "src/OpenClaw.Shared/IOperatorGatewayClient.cs"
+          ],
+          "obligations": [
+            "Verify actual permission, automatic-response and Gateway-voice opt-in toggle/persistence/application paths into App/coordinator/native playback, including admission permission and opt-out retirement, preserved local node/MCP settings and finite UI state. Do not substitute policy proxies for supplied actual callers. Transport correlation and retained-page targets are independently assigned to their complete integration units."
+          ]
+        },
+        "review_completion": "complete"
+      }
+    }
+  ],
+  "usage": {
+    "attempts": 12,
+    "reported_attempts": 12,
+    "unknown_attempts": 0,
+    "partial_attempts": 0,
+    "complete": true,
+    "tokens": {
+      "input_tokens": 2913562,
+      "cached_input_tokens": 62720,
+      "output_tokens": 6885,
+      "reasoning_output_tokens": 5015
+    }
+  },
+  "review_status": "findings",
+  "review_allocation": {
+    "version": 1,
+    "base": "a4dd026cc5f85a444a0fcd05eef5b86282dbda8c",
+    "head": "dc7583bd651b2c4b9f385ffbff74edd440c7278d",
+    "bundle_sha256": "8b5c5cfbf84249d8b141a60b7a315d2cc53948e5c25feb5dbcda7fc1879f8ca4",
+    "bundle_bytes": 7327639,
+    "header_bytes": 2314,
+    "manifest_sha256": "d9086dbcaea46d73a8140342b36d6a5a400b4da54e93666570a50ba58803cb14",
+    "omitted_paths": [],
+    "units": [
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "byte_offset": 2314,
+        "bytes": 1879,
+        "sha256": "650374213bf9d5894abcee3780a923be80db6a5db39afaa2a4858d0a0394f50b",
+        "before": {
+          "mode": "100644",
+          "blob": "ffcd05e3d64d8f2d500b9cf2986045b66e00eae7"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "2d4c8e307aa5b22e1548878789377c4a1b49c6a3"
+        },
+        "status": "M"
+      },
+      {
+        "path": "docs/GATEWAY_VOICE.md",
+        "byte_offset": 4193,
+        "bytes": 7406,
+        "sha256": "4e46ffcc7118dc2a41ed4601635c7ba83d4593ad3318f24e9ccec3ff85a7155c",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "0c51a4962f93fa0f5f3762e589f13d2843d78ca1"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Shared/GatewaySpeech.cs",
+        "byte_offset": 11599,
+        "bytes": 8220,
+        "sha256": "dba04f29e5bb6fb14cffbc671e2486c52654947ab44ff4a9850c54e71c2004fb",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "e8f8114961401f99f4ad9bc7f7619bfb326073be"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+        "byte_offset": 19819,
+        "bytes": 29186,
+        "sha256": "dc38752d95e36446e1a6a1462578c016a8924885720bcad6f997bc7efa25189c",
+        "before": {
+          "mode": "100644",
+          "blob": "1a1e3ca2711b09cd9778c79beac81640c5e1c0a2"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "d2ebf10a9ca4b349b96e2c4596426630d22ee69e"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+        "byte_offset": 49005,
+        "bytes": 3084,
+        "sha256": "1a28baa88e8a845022ab79978393dead4b277f60f45c6d3a95c40ebf947e84b0",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "e3b53664497cf554fae0efb2897b95fd37781d4c"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+        "byte_offset": 52089,
+        "bytes": 521061,
+        "sha256": "2f9a3fefb7e4bdfb9ff5d188b371f5ee71f1045979407ddaceca255a976c593a",
+        "before": {
+          "mode": "100644",
+          "blob": "5fd1f38c61759aa29673713586e63dddf3926e42"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "c3a1f51afa018cfc7923a3dc55f2b9aba679fed3"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Shared/SettingsData.cs",
+        "byte_offset": 573150,
+        "bytes": 28552,
+        "sha256": "62d62ac14260afae824398b02ebeba6bd3e9e39608eb964af082d908af20c232",
+        "before": {
+          "mode": "100644",
+          "blob": "d78ac65848189c26757d3e8c03c8ea096768012f"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "3a3a83ae72dd9043f0fbaba3e3084c3da00a50a9"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+        "byte_offset": 601702,
+        "bytes": 409868,
+        "sha256": "2bdf5fcf8f86742eb6a5aa61bf8c844ca0638c1ea985af763c1bd7241f5b3a8c",
+        "before": {
+          "mode": "100644",
+          "blob": "1765e3f6e6186c1e8723a9519dfcb54b9699e3e8"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "87d84db5c78d3027a0c5886c27382947c8d77e6a"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+        "byte_offset": 1011570,
+        "bytes": 3296,
+        "sha256": "38796b70eebd0eb5845e9bdfb9993f8ed2ee6095d85815a739fc7bb8925b4ad6",
+        "before": {
+          "mode": "100644",
+          "blob": "37eab95d8eb3c9681e6f380ee6d6c196d5ee5c9f"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "f2b238a1d6a155b1ae8b7e2c6af4a539e9c19ee1"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+        "byte_offset": 1014866,
+        "bytes": 9104,
+        "sha256": "f75a7b528b4aa104ca51ca89c5238ac743f9e8a01b33a45f60b11ed997f61041",
+        "before": {
+          "mode": "100644",
+          "blob": "b9b9db04093d6b057dfe768a76f7d45816612ae2"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "5b61a8b3524e15dcb1adab8ba3ee6dbe0023be9a"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+        "byte_offset": 1023970,
+        "bytes": 8485,
+        "sha256": "cdb50981baab5b1870ad8dfbaecd65cd101a400913513530fa9f45c4e0226a79",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "43c8e78a365ad160bf91cc14d9fb5134c31ccc2e"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+        "byte_offset": 1032455,
+        "bytes": 2126,
+        "sha256": "157a4b09825b661e79d8d3b34f0969fb450b8ececef57270530302cb9cc7740d",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "b1f067d139053d912d4c089b1ed102bb3bf2102f"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+        "byte_offset": 1034581,
+        "bytes": 21791,
+        "sha256": "64aef812d7c3b8ff1f7905ab9ad06a00d08e45f5cb0ab6e3866936ace77b4489",
+        "before": {
+          "mode": "100644",
+          "blob": "54a075db72835601ab939eaa24f5f22961ea3230"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "b6c4270e38f24d94f19d53373a4d552379221b83"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+        "byte_offset": 1056372,
+        "bytes": 18558,
+        "sha256": "c74703be91ce45b922bc78b4d93c764079413bc648e2e33314a03c35201856fb",
+        "before": {
+          "mode": "100644",
+          "blob": "1e807dfcff7b7b7590ec8f6ea244479648a8ff81"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "9adb134335242afffd416d4af77ee874ab8cb0ab"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml",
+        "byte_offset": 1074930,
+        "bytes": 15890,
+        "sha256": "c2a4c9275f91920d7763cc0f79840d2f33d5fa3d2adc52e2c6fa7e65c47f5117",
+        "before": {
+          "mode": "100644",
+          "blob": "4297329d1a36ca3dafada7d27e51d7e6ca43e1fc"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "4cd6ceae18e2d06590974c39118391d16906ca78"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+        "byte_offset": 1090820,
+        "bytes": 130860,
+        "sha256": "5758e5d98937b9f15ed7b7f67c2192a3dbb83245623ea958afaf713f6f83fc67",
+        "before": {
+          "mode": "100644",
+          "blob": "17cff04c5a7ed3e53ceb4e158c18d30d589e78b8"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "4238b422f677bd008b5503ee66139da167fee6c8"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+        "byte_offset": 1221680,
+        "bytes": 7823,
+        "sha256": "279ae0870297446415552101c8cd2fc934f2805e367f7e63c82afce1e1825967",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "2c42a796c13c781811df393883c569b4a0309509"
+        },
+        "status": "A"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml",
+        "byte_offset": 1229503,
+        "bytes": 56902,
+        "sha256": "c6026687095a8cdbe2fac9bef8eb6f9727d4e6e2d66ae872ad53b9e03c69d168",
+        "before": {
+          "mode": "100644",
+          "blob": "60a9c8f5c4aa49054164ab929c681ab1a0debd37"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "b0118b939ea24221b6c63000e9e2c9032e5b61e1"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+        "byte_offset": 1286405,
+        "bytes": 108819,
+        "sha256": "e0609565dd3dd84a337a3523df415d9440e5686cf6a72ce347648aca7e0bedcd",
+        "before": {
+          "mode": "100644",
+          "blob": "89683c778c46f2a0825cb4f709eb5ae3c030cbf6"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "c14482d854e82bacd336512b014af42083683442"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+        "byte_offset": 1395224,
+        "bytes": 96709,
+        "sha256": "33722094702c0ffc460fe12a66684f40fecfaeacc78a36ba37d7c058e12865c5",
+        "before": {
+          "mode": "100644",
+          "blob": "3a9d1d3911dc4e55b13ae41eb45c9593d1e22f9e"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "05a67e5c0922e7269007eeb2443ee22e49142723"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+        "byte_offset": 1491933,
+        "bytes": 50827,
+        "sha256": "c9a502971c8b0fa76ac513eceba859dabbfe5aa186da29376ae5610d721301da",
+        "before": {
+          "mode": "100644",
+          "blob": "2b285f8c25d2273ecae6d52efb7273323898a2c0"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "99342230aa9cd69460531679682470b6274d3202"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw",
+        "byte_offset": 1542760,
+        "bytes": 905589,
+        "sha256": "27314b3e473e809e4eb4e9364cb1e0f5e7efd16e3c58382dc6324cdc2adc0813",
+        "before": {
+          "mode": "100644",
+          "blob": "6dc1033354db9b6ca192143fcc499f86a41fa31b"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "6d9c30d6d23a642f02c6ff53d597fb73212875f2"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw",
+        "byte_offset": 2448349,
+        "bytes": 964043,
+        "sha256": "d7c23de44d105213515dc693817cba7382cf5e42436f93cbb5b61224ad62a2bd",
+        "before": {
+          "mode": "100644",
+          "blob": "338573e6d9b7c0e0c71bada05a18ed18c5b09c37"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "6639686186afbe2f0d12aa55933d67beacfa9ae5"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw",
+        "byte_offset": 3412392,
+        "bytes": 936696,
+        "sha256": "0207359b2ba7a0f01619a7c650dcde87baf6ca4841ccaf7cc687e5d771c489de",
+        "before": {
+          "mode": "100644",
+          "blob": "46cc2593cd417cbcea2a9c5dfc403411a4bac4a9"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "c2459395c94836fb79f051325b1a2ac212aac838"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/pt-br/Resources.resw",
+        "byte_offset": 4349088,
+        "bytes": 948203,
+        "sha256": "ee5ea5957d72201604ad01929e2274af42b00a430c28886427ab9ee43790611e",
+        "before": {
+          "mode": "100644",
+          "blob": "3ef59041187e3010841f32ccfc3187ddd9ccfe18"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "6ed408f7823b90b1ccb6d087eaa4e601ab673b83"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/zh-cn/Resources.resw",
+        "byte_offset": 5297291,
+        "bytes": 893484,
+        "sha256": "48fe6c4a0d05c622f83a4a25316c7025649712d4f23e47cf183595e19a9c7085",
+        "before": {
+          "mode": "100644",
+          "blob": "6e0681f11bb063e49a2317bc4fd31d7861ebe146"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "9b14c71279bb76f66c13c016efda1349f2b862e8"
+        },
+        "status": "M"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Strings/zh-tw/Resources.resw",
+        "byte_offset": 6190775,
+        "bytes": 898136,
+        "sha256": "78ebf2644d40f3d22c618477879afc44797860214ad14dacdca6e2a15660b9a0",
+        "before": {
+          "mode": "100644",
+          "blob": "32396effa7f03d2307bdbaaddf93f53da7f6fc0d"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "16b5a7d3653b1ff4e712890db15b6205faff6eac"
+        },
+        "status": "M"
+      },
+      {
+        "path": "tests/OpenClaw.Shared.Tests/GatewaySpeechTests.cs",
+        "byte_offset": 7088911,
+        "bytes": 16818,
+        "sha256": "d890f8981221010b401bff6457faa652a351267f78e80f2679087087243125e5",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "45c1779b239c15401365dade0e307592ed589900"
+        },
+        "status": "A"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.Tests/ChatComposerSessionTests.cs",
+        "byte_offset": 7105729,
+        "bytes": 25142,
+        "sha256": "8638d33598a015f0957163346addc4054f41761713f374bc26301a8e52ffd3fa",
+        "before": {
+          "mode": "100644",
+          "blob": "9c8cb56232f923b71b9e9f928caf585cdf7791e9"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "30251ecc103ec0c0ffa096335393b31ffd80b722"
+        },
+        "status": "M"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.Tests/GatewaySpeechPlaybackTests.cs",
+        "byte_offset": 7130871,
+        "bytes": 18444,
+        "sha256": "7290acbdc0ffe416d60988213fce680ca7a79bfc5e101c32d8f32bdcb2bf596b",
+        "before": {
+          "mode": "000000",
+          "blob": "0000000000000000000000000000000000000000"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "474a1fe6e90e26647a36a742f823fd469f0568e7"
+        },
+        "status": "A"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.Tests/OpenClaw.Tray.Tests.csproj",
+        "byte_offset": 7149315,
+        "bytes": 71579,
+        "sha256": "d7e279eb182826042c168755734d31eebdb5ba283c10e023ae26cc141a5d820e",
+        "before": {
+          "mode": "100644",
+          "blob": "ba4ea55adbbfd2aa1492818ba8ccc7088b6948e4"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "0ad5abf9b2305bc0374968178cb9a5d5d21fb90e"
+        },
+        "status": "M"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.Tests/SettingsRoundTripTests.cs",
+        "byte_offset": 7220894,
+        "bytes": 87822,
+        "sha256": "1084c58fda3b468db5182712486e5cc309b45d7beabd025eac7a290001da8985",
+        "before": {
+          "mode": "100644",
+          "blob": "4b172e836122d4b5e863852ab9c0fe1719c3a624"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "ff4e359ed6aa548e6b58b16e009417edbfd11bf5"
+        },
+        "status": "M"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.UITests/SetupNativeChatWarningTests.cs",
+        "byte_offset": 7308716,
+        "bytes": 18923,
+        "sha256": "81f1e326e6d9b5eccb751dd57783a4728ae301af52cf7b699fb96efd5239dfc7",
+        "before": {
+          "mode": "100644",
+          "blob": "fcacc8b659d9e17396b7c354106cab3c25e3c953"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "deca86a3b85abdc7f6ea3d4fe4b535f85175a678"
+        },
+        "status": "M"
+      }
+    ],
+    "contexts": [
+      {
+        "path": "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+        "blob": "c3a1f51afa018cfc7923a3dc55f2b9aba679fed3",
+        "mode": "100644",
+        "bytes": 251719,
+        "sha256": "40bdaed851c7138e79b0497bb3203ef48f456be04011816b3fd28c411bc43b12"
+      },
+      {
+        "path": "src/OpenClaw.Shared/WebSocketClientBase.cs",
+        "blob": "e02156b6b8e95cf7c738227377b779172396918d",
+        "mode": "100644",
+        "bytes": 35938,
+        "sha256": "d6f8c02af48002c7c71623427ed24ae3a4b377756700ad11f3dac2b8280dac91"
+      },
+      {
+        "path": "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+        "blob": "d2ebf10a9ca4b349b96e2c4596426630d22ee69e",
+        "mode": "100644",
+        "bytes": 14453,
+        "sha256": "b5a911c5818191cc8ed4191c2d4eed580cf46945897fa7558bd755c14c9fbbbd"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+        "blob": "6f534f93edf6f7e7c2bf56864a687d9c20ffcb4e",
+        "mode": "100644",
+        "bytes": 29111,
+        "sha256": "9a5c93712a77590d627de535e57bb8955ee1c5672c982024f03fb05698888a6f"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerViewModel.cs",
+        "blob": "7aac24b04f0b33c6eacce775811fb231358594ed",
+        "mode": "100644",
+        "bytes": 22613,
+        "sha256": "e4746153d0997d61f19451ca9c78096f12cd30c14d7a4f7d28bb264afe7faeab"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+        "blob": "4238b422f677bd008b5503ee66139da167fee6c8",
+        "mode": "100644",
+        "bytes": 63932,
+        "sha256": "6be02327f7d3f2e44a13784fa09fdbea471209879c84e2a27226d6a434bcfe54"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+        "blob": "b6c4270e38f24d94f19d53373a4d552379221b83",
+        "mode": "100644",
+        "bytes": 12073,
+        "sha256": "979d4498d89a11ed96c4050b06cd25d9f83c933254edcd6e3961e224bf5a14f6"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+        "blob": "99342230aa9cd69460531679682470b6274d3202",
+        "mode": "100644",
+        "bytes": 24806,
+        "sha256": "cec1d70600b387d84eef3e2dff6151bb3fc9cfc467a30e07a81293b2950f67ec"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+        "blob": "05a67e5c0922e7269007eeb2443ee22e49142723",
+        "mode": "100644",
+        "bytes": 46946,
+        "sha256": "0274be872c63f8b9ba7b78591cb6b9eae0614243f5a0851ce6004916a916e4c4"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+        "blob": "c14482d854e82bacd336512b014af42083683442",
+        "mode": "100644",
+        "bytes": 52538,
+        "sha256": "3e60b76aad998abe7c71151727320978d86a5efc6ace83297c8841e42223716f"
+      },
+      {
+        "path": "src/OpenClaw.Shared/GatewaySpeech.cs",
+        "blob": "e8f8114961401f99f4ad9bc7f7619bfb326073be",
+        "mode": "100644",
+        "bytes": 7722,
+        "sha256": "db471cab1dd3ac207b0f687e0d8bcd0744f18aec856c10741c9faba48a74a0e8"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+        "blob": "87d84db5c78d3027a0c5886c27382947c8d77e6a",
+        "mode": "100644",
+        "bytes": 198105,
+        "sha256": "c908873b62b1fe6858f84087b5f7129db862fa4304affd6c30df7fa9fdf5a4c9"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+        "blob": "43c8e78a365ad160bf91cc14d9fb5134c31ccc2e",
+        "mode": "100644",
+        "bytes": 7818,
+        "sha256": "f701ddf98672ca06a21f475f2d2e0191c778cbe50eadbc7b1ed0e488f14491f3"
+      },
+      {
+        "path": "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+        "blob": "e3b53664497cf554fae0efb2897b95fd37781d4c",
+        "mode": "100644",
+        "bytes": 2726,
+        "sha256": "43364a628146d2915f3f1e0670f6b90bc6ffe97f049d6c9cd4fb5b547fa4b7f8"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+        "blob": "b1f067d139053d912d4c089b1ed102bb3bf2102f",
+        "mode": "100644",
+        "bytes": 1788,
+        "sha256": "6792f5b17fb04edac5a6fc3d5d0f284c58d7e31e7d56c4cb334d50d3a90eeb32"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+        "blob": "2c42a796c13c781811df393883c569b4a0309509",
+        "mode": "100644",
+        "bytes": 7201,
+        "sha256": "935d48e002e7496522a57f3a12b223741ff1fbf76f8a42af389ff0c6d7241aca"
+      },
+      {
+        "path": "src/OpenClaw.Shared/SettingsData.cs",
+        "blob": "3a3a83ae72dd9043f0fbaba3e3084c3da00a50a9",
+        "mode": "100644",
+        "bytes": 13839,
+        "sha256": "9f30d36277955b32742c41e308e14ee28e9eaca4cb38ad4e6684d9c11e13c1bf"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+        "blob": "57f49727375d89b12db9e2c2d65eb40b8a17e661",
+        "mode": "100644",
+        "bytes": 3173,
+        "sha256": "91e343108f7369cf27f7ec9c001750d62d0c71d39c6d0b27caf7e9e5b3ebbb2f"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+        "blob": "9adb134335242afffd416d4af77ee874ab8cb0ab",
+        "mode": "100644",
+        "bytes": 8902,
+        "sha256": "3869d26a726b89b4d2c907efe49ae61a09b559478402f3cf9a363f9deaba89ca"
+      },
+      {
+        "path": "tests/OpenClaw.Tray.UITests/TestApp.cs",
+        "blob": "8ed19242a373ab3d598627a705a865aa86556aa7",
+        "mode": "100644",
+        "bytes": 7590,
+        "sha256": "809e782c80401a96ea357b30df2437cb657630996a261c96d1470cf06ada80c3"
+      },
+      {
+        "path": "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+        "blob": "560f0fc2756307de4266a00b2c01e2a95d803f87",
+        "mode": "100644",
+        "bytes": 9826,
+        "sha256": "beb6dd66cc86e049347afe9493772604137a5d2eb29ef2c805f65207abb5e6f2"
+      },
+      {
+        "path": "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+        "blob": "9cc09a892e181a1ecba73e78269d3a7af29899e6",
+        "mode": "100644",
+        "bytes": 995,
+        "sha256": "77a8216431e07719aa3b3e5f245b46eed5d442b9fde84d3d97f1bb3a247ba9d3"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+        "blob": "51efe92e7c29b45e46da22aa06e298a8cd62f089",
+        "mode": "100644",
+        "bytes": 52008,
+        "sha256": "2a2620c186c92cb29186e9a279b191cb7fa908c7edcb2a5a8ca54d55cae1659b"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+        "blob": "e01fb94bf12e32e7b0abf2525dbcb2fdb166ef2d",
+        "mode": "100644",
+        "bytes": 5710,
+        "sha256": "0651e73b4b5f42da979f249bc1844348dfce672945f121c447479d36672a009b"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+        "blob": "04da5bea5bb62c2016dacbb16396661fa47688d5",
+        "mode": "100644",
+        "bytes": 1875,
+        "sha256": "9c8c45e060edbc5d3c39d493b6f403b0b3b9a992ebfa8fc498b4924e5aaa811f"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+        "blob": "5b61a8b3524e15dcb1adab8ba3ee6dbe0023be9a",
+        "mode": "100644",
+        "bytes": 4403,
+        "sha256": "787d39cdefe3b851d3124ea3d9aea3a997686ebe6e4ea32e27a8a8a4e269559b"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+        "blob": "f2b238a1d6a155b1ae8b7e2c6af4a539e9c19ee1",
+        "mode": "100644",
+        "bytes": 1477,
+        "sha256": "9a21f1ee19c9561dc0f3d3c45fd9a2ea728e9afac0d90c91f14b604c6dbbf48d"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+        "blob": "de6529958887925afd76f51f7d85c0e2d8d37336",
+        "mode": "100644",
+        "bytes": 3602,
+        "sha256": "dcaf9bc27d9af362312a2662feaf4eecc51f9a7d3c4e751939dbe3c8b20b21f8"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+        "blob": "bb4f40aadb988f187668ef7ba668e8109334ca90",
+        "mode": "100644",
+        "bytes": 23919,
+        "sha256": "2dcfa64152ad61d442ccdbe460568bf53604d5238478ac138dac2e07719b4c40"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs",
+        "blob": "9f310b380cf0bec5299e895b5525e040be7099fe",
+        "mode": "100644",
+        "bytes": 63156,
+        "sha256": "dba3126474b0726183d18747c2de8b1f6c088cb51de1584a17de6f6ee88932f1"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Presentation/PermissionsPageViewModel.cs",
+        "blob": "9a23a9888afcc7627db986cbe2fe741caa6288eb",
+        "mode": "100644",
+        "bytes": 36277,
+        "sha256": "85fb734bee324a24b81bcd1f5205713d8e0e300108f7c215f1941d9d5a383145"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml.cs",
+        "blob": "8647e6b4eeab9f414f498f7038ef1de2a9d6b587",
+        "mode": "100644",
+        "bytes": 22382,
+        "sha256": "2901fcbde5fa31e31c4a48dfea54f5db017ac715a0eb5fcc30564fe7921a09ac"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Presentation/SettingsStore.cs",
+        "blob": "8401d87c0f645bcbd79a4f2d3932f877836b7e1c",
+        "mode": "100644",
+        "bytes": 9154,
+        "sha256": "ce303875873a68f0934864d8b6e732e5e853db6a7f08cee901aaef78cbb5e599"
+      },
+      {
+        "path": "src/OpenClaw.Tray.WinUI/Presentation/ISettingsStore.cs",
+        "blob": "e2276d3237d7eec52c18d4b72c9a1592cc2fcba8",
+        "mode": "100644",
+        "bytes": 6367,
+        "sha256": "65d6373d12400fdf1719bab39009d390d74f4c0ac5df01927f79a50f3790654e"
+      }
+    ],
+    "batches": [
+      {
+        "name": "protocol-and-granted-authority",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+          "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+          "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+          "src/OpenClaw.Shared/SettingsData.cs",
+          "tests/OpenClaw.Shared.Tests/GatewaySpeechTests.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Shared/WebSocketClientBase.cs",
+          "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+          "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs"
+        ],
+        "obligations": [
+          "Verify real issued operator scope/method/epoch admission, request correlation, sanitized errors, bounded audio and no retry/fallback. Inspect persisted opt-in default without widening credentials."
+        ],
+        "prompt_bytes": 722218,
+        "prompt_sha256": "1beaa1a1af805bf449e8b9ab11eda57b68a6b855b5ec1ed7e6b5cf84ddb1e506",
+        "review_completion": "complete"
+      },
+      {
+        "name": "chat-lifetime-and-native-playback",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml",
+          "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+          "tests/OpenClaw.Tray.Tests/ChatComposerSessionTests.cs",
+          "tests/OpenClaw.Tray.Tests/GatewaySpeechPlaybackTests.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerViewModel.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+          "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+          "src/OpenClaw.Shared/SettingsData.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+          "tests/OpenClaw.Tray.UITests/TestApp.cs",
+          "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+          "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+          "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs"
+        ],
+        "obligations": [
+          "Verify retained-host visibility and effective speech-target updates compose correctly; pending/late operations retire on opt-out, target change, disconnect and disposal; native playback stays serialized and local paths remain distinct. Review combined session regression."
+        ],
+        "prompt_bytes": 898342,
+        "prompt_sha256": "71938ac0b1b0e0b70f94a146c32002ea8ff9721b99c165450696eaf4a1311a62",
+        "review_completion": "complete"
+      },
+      {
+        "name": "settings-and-compatibility",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+          "tests/OpenClaw.Tray.Tests/OpenClaw.Tray.Tests.csproj",
+          "tests/OpenClaw.Tray.Tests/SettingsRoundTripTests.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+          "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Shared/SettingsData.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+          "tests/OpenClaw.Tray.UITests/TestApp.cs",
+          "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+          "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+          "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs"
+        ],
+        "obligations": [
+          "Verify opt-in persistence, provider preservation, readiness/preview/Stop state, finite error keys, consent and native playback integration. Translation wording and placeholder mappings are reviewed in the complete language-file assignments; App/TestApp composition and retained-host callbacks are also assigned to integration. No automatic fallback or microphone repair."
+        ],
+        "prompt_bytes": 990973,
+        "prompt_sha256": "2ffdb5298af6051057a4c8f3fd1521baa8baa8ef14b7c106052cbd5cfad7f96e",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-1",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 935456,
+        "prompt_sha256": "2b2ebfb30cb56b6fcdd0dcf70ac622663f54d304b8d782e2aaf04c210fe36437",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-2",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 993910,
+        "prompt_sha256": "e1b4160f70b9692645310f7de9c557b8cbe330cd378dd3fb2cb2a7c043696e8d",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-3",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 966563,
+        "prompt_sha256": "e4558b2d1938d4053c23e7ad7bd7d059c9c85349d4b4d8bee59b260b693198a3",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-4",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/pt-br/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 978070,
+        "prompt_sha256": "e637657595c50e5e11a7c639bb421a3dec4880a8ad18f9775e32a81c8c11b80e",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-5",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/zh-cn/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 923351,
+        "prompt_sha256": "b159b4fcf104a30efd6c627df615e6bd006296a4419d0f0e44fc59c24ba5411e",
+        "review_completion": "complete"
+      },
+      {
+        "name": "localized-voice-contract-6",
+        "kind": "owner",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/Strings/zh-tw/Resources.resw"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs"
+        ],
+        "obligations": [
+          "Review the complete assigned resource unit. Verify new Gateway-voice names, finite-error copy, opt-in/no-fallback/provider-text disclosures and format placeholders match the supplied presentation and settings owners; preserve existing values."
+        ],
+        "prompt_bytes": 928003,
+        "prompt_sha256": "1df98bf04713f7e107a2bf944a253a1884ffb2960dada86e5a1014d979d0168c",
+        "review_completion": "complete"
+      },
+      {
+        "name": "composition-and-retained-page-integration",
+        "kind": "integration",
+        "changes": [
+          "docs/ARCHITECTURE.md",
+          "docs/GATEWAY_VOICE.md",
+          "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+          "tests/OpenClaw.Tray.UITests/SetupNativeChatWarningTests.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerViewModel.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+          "src/OpenClaw.Tray.WinUI/Windows/WorkspaceWindow.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ChatComposerInputs.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawReactorChatRoot.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatComposer.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+          "tests/OpenClaw.Tray.UITests/TestApp.cs"
+        ],
+        "obligations": [
+          "Verify actual WorkspaceWindow suspend/resume, Reactor render commit and ChatComposerSession callbacks, inactive page guards and retained-host target rebind. Verify App/TestApp safety and documentation/test claims. Transport authority/response retirement and settings consent integration are separately assigned to the complete transport composition unit."
+        ],
+        "prompt_bytes": 882012,
+        "prompt_sha256": "4fac8b6c9f0f6250d65359de02ae09a86097a229434cf88f1cbdcba398b9b7f7",
+        "review_completion": "complete"
+      },
+      {
+        "name": "transport-to-native-effect-integration",
+        "kind": "integration",
+        "changes": [
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+          "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+          "src/OpenClaw.Shared/WebSocketClientBase.cs",
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+          "src/OpenClaw.Shared/PendingRequestRegistry.cs",
+          "src/OpenClaw.Shared/GatewayServerMethodAdvertisement.cs",
+          "src/OpenClaw.Shared/SettingsData.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+          "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+          "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs"
+        ],
+        "obligations": [
+          "Verify actual App auto-response dispatch into the coordinator and authenticated status/synthesis request correlation, SendResponseRequestAsync cancellation/response retirement, response validation and serialized native playback. Check no retry/local fallback and retirement effects at the playback API. Actual UI consent/permission/automatic-response toggles and SetSpeechTarget callers are separately assigned to the complete consent and lifecycle units."
+        ],
+        "prompt_bytes": 892154,
+        "prompt_sha256": "b5d37dbe14e275d5edcb108a4969d1086e323343446669e661796859a377488f",
+        "review_completion": "complete"
+      },
+      {
+        "name": "permission-and-voice-consent-integration",
+        "kind": "integration",
+        "changes": [
+          "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+          "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.GatewaySpeech.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs"
+        ],
+        "contexts": [
+          "src/OpenClaw.Tray.WinUI/Presentation/PermissionsPageViewModel.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Presentation/SettingsStore.cs",
+          "src/OpenClaw.Tray.WinUI/Presentation/ISettingsStore.cs",
+          "src/OpenClaw.Shared/SettingsData.cs",
+          "src/OpenClaw.Tray.WinUI/App.SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SettingsChangeCoordinator.cs",
+          "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+          "src/OpenClaw.Tray.WinUI/Services/SpeechSetupReadiness.cs",
+          "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+          "src/OpenClaw.Shared/GatewaySpeech.cs",
+          "src/OpenClaw.Shared/IOperatorGatewayClient.cs"
+        ],
+        "obligations": [
+          "Verify actual permission, automatic-response and Gateway-voice opt-in toggle/persistence/application paths into App/coordinator/native playback, including admission permission and opt-out retirement, preserved local node/MCP settings and finite UI state. Do not substitute policy proxies for supplied actual callers. Transport correlation and retained-page targets are independently assigned to their complete integration units."
+        ],
+        "prompt_bytes": 767228,
+        "prompt_sha256": "42fdaa4904a83e78e1718a45c58788d237d9aa52a5d1f6572898d8af22fb8235",
+        "review_completion": "complete"
+      }
+    ]
+  }
+}

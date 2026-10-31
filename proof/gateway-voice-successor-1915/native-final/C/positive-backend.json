@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-31T21:38:50.6754645Z",
+  "head": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "action": "status",
+  "result": {
+    "provider": "openai",
+    "count": 3,
+    "pending": [],
+    "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb",
+    "events": [
+      {
+        "event": "backend_ready",
+        "at": "2026-10-31T20:24:10.758Z",
+        "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb",
+        "audioBytes": 128044
+      },
+      {
+        "event": "synthesis_received",
+        "at": "2026-10-31T20:25:13.73Z",
+        "id": 1,
+        "held": false,
+        "textChars": 48,
+        "textSHA256": "b9a85e64c0362edcfd1e4c2b65698db6057b23aac333b780076ba892b8340f8b",
+        "requestedFormat": "wav"
+      },
+      {
+        "event": "audio_response_released",
+        "at": "2026-10-31T20:25:13.73Z",
+        "id": 1,
+        "bytes": 128044,
+        "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb"
+      },
+      {
+        "event": "audio_response_finished",
+        "at": "2026-10-31T20:25:13.732Z",
+        "id": 1
+      },
+      {
+        "event": "synthesis_received",
+        "at": "2026-10-31T21:16:41.099Z",
+        "id": 2,
+        "held": false,
+        "textChars": 39,
+        "textSHA256": "0a7d3f0ca03220822cef0132d5e9e6b37db5eae0062b4c0e9473ae26fcff4e6f",
+        "requestedFormat": "wav"
+      },
+      {
+        "event": "audio_response_released",
+        "at": "2026-10-31T21:16:41.103Z",
+        "id": 2,
+        "bytes": 128044,
+        "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb"
+      },
+      {
+        "event": "audio_response_finished",
+        "at": "2026-10-31T21:16:41.104Z",
+        "id": 2
+      },
+      {
+        "event": "synthesis_received",
+        "at": "2026-10-31T21:38:46.825Z",
+        "id": 3,
+        "held": false,
+        "textChars": 39,
+        "textSHA256": "0a7d3f0ca03220822cef0132d5e9e6b37db5eae0062b4c0e9473ae26fcff4e6f",
+        "requestedFormat": "wav"
+      },
+      {
+        "event": "audio_response_released",
+        "at": "2026-10-31T21:38:46.826Z",
+        "id": 3,
+        "bytes": 128044,
+        "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb"
+      },
+      {
+        "event": "audio_response_finished",
+        "at": "2026-10-31T21:38:46.827Z",
+        "id": 3
+      }
+    ]
+  }
+}

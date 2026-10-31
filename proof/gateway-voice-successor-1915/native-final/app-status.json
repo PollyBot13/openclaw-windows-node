@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"connectionStatus\":\"Connected\",\"overallState\":\"Ready\",\"operatorState\":\"Connected\",\"nodeState\":\"Disabled\",\"nodeConnected\":false,\"nodePaired\":false,\"nodePendingApproval\":false,\"nodeError\":null,\"gatewayVersion\":\"2026.10.10-beta.3\",\"sessionCount\":0,\"nodeCount\":0,\"operatorScopes\":[\"operator.admin\",\"operator.pairing\"],\"operatorDeviceId\":null}"
+      }
+    ],
+    "isError": false
+  }
+}

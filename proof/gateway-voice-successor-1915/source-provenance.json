@@ -1,0 +1,22 @@
+{
+  "candidate": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "tree": "0b44bb3fecf55fcf1426d585c01fa616ec0d9fe0",
+  "base": "a4dd026cc5f85a444a0fcd05eef5b86282dbda8c",
+  "originalFeature": "e8e0c08d873499127556ce387a22c30ae06e4ff3",
+  "carriedCommit": "78383f25e5cf4a0bd03661055f94b2f7c6579496",
+  "regressionCommit": "94c9a2f258e5c2f1dccde04efa9828574ce103d4",
+  "guardCommit": "dc7583bd651b2c4b9f385ffbff74edd440c7278d",
+  "BExecutedHead": "94c9a2f258e5c2f1dccde04efa9828574ce103d4",
+  "BComparedPaths": [
+    "src/OpenClaw.Shared",
+    "src/OpenClaw.Connection",
+    "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs"
+  ],
+  "BChangedPaths": [],
+  "correspondenceLimit": "Identical relevant source, not identical rebuilt assemblies and not a new B execution",
+  "cleanAtRecording": true,
+  "attestation": "Manually recorded local source/build/loaded-module association; not signed attestation",
+  "permissionCommit": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "review": "canonical-review-7/status.json",
+  "reviewBundle": "b7fd468cc4a140a1aa04f6f1c32302e2663e85157fdb634feebbeb855f7e7320"
+}

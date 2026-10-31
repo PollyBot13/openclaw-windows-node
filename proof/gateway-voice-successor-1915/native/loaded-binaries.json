@@ -1,0 +1,26 @@
+{
+  "pid": 31972,
+  "at": "2026-10-31T20:39:53.0291497Z",
+  "loadedFiles": [
+    {
+      "name": "OpenClaw.Tray.WinUI.exe",
+      "sha256": "C02AA3127CED75B087DA7AB80806DE9E65FB25F25D72B10723030147181603AC",
+      "pathInSelectedBuild": true
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.dll",
+      "sha256": "B751B7DFAE35302D54A1FED26D978FBEE19C63AC3A2395E9791F3A634F03D9AC",
+      "pathInSelectedBuild": true
+    },
+    {
+      "name": "OpenClaw.Connection.dll",
+      "sha256": "FDAEC9E5917696D0407B2DC325714C165C3E8E6AD37FB44FB26952917CB0963E",
+      "pathInSelectedBuild": true
+    },
+    {
+      "name": "OpenClaw.Shared.dll",
+      "sha256": "B89EFD85DC24808990079FE9EE7BA2AE088314D99190C9FBA84C5ABEC001636A",
+      "pathInSelectedBuild": true
+    }
+  ]
+}

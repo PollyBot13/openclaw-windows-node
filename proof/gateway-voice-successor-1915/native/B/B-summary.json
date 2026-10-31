@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "actualReadonlyScopes": [
+    "operator.read"
+  ],
+  "provider": "openai",
+  "allowedControlBackendDelta": 1,
+  "preflightClassification": "PermissionRequired",
+  "rawGatewayClassification": "GatewayPermissionRequired",
+  "negativeBackendDelta": 0,
+  "ephemeralSharedTokenFallback": false
+}

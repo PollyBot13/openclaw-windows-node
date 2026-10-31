@@ -1,0 +1,94 @@
+{
+  "sourceHead": "94c9a2f258e5c2f1dccde04efa9828574ce103d4",
+  "sourceDirtyPaths": [],
+  "helperBuild": {
+    "sdk": "10.0.403",
+    "configuration": "Release",
+    "projectReferencesToProduct": false,
+    "warnings": [
+      "NU1900 vulnerability metadata unavailable (2 warnings), zero errors"
+    ],
+    "windowsDesktopFrameworkVerified": true,
+    "runtime": "win-x64",
+    "framework": "net10.0-windows10.0.22621.0"
+  },
+  "productBinaries": [
+    {
+      "name": "OpenClaw.Shared.dll",
+      "sha256": "55F3F509D1806A0C6EE22BD7E3B33EC014A7A7F276FB4C0DAD77DDE63F67279B",
+      "bytes": 2196992
+    },
+    {
+      "name": "OpenClaw.Connection.dll",
+      "sha256": "4FCE17D9A684C753CF7395BBD9D63532D1F8327BD6CA0FFA0CB9DA2F6B42849E",
+      "bytes": 1027072
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.dll",
+      "sha256": "5368B2DBD4DFDCE1AB11F7DD65556C56EE5A0DA05909B1E61E42CFB567D506D2",
+      "bytes": 4593152
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.exe",
+      "sha256": "01B8220C8CB85373E6761A31C9E4CF6F92AA466C43713E64E5B561DC8DDB48A6",
+      "bytes": 394240
+    }
+  ],
+  "helperSources": [
+    {
+      "sha256": "AD1815D18FEBB9523F523AC127CBD5F3574F8ACA106ECF0B1736E1042C283ED2",
+      "name": "Approve-InitialControl.ps1"
+    },
+    {
+      "sha256": "CF2C3553212BF7D6E74639AE38F79B64814C67CA7C37DCF527D7352E4D485837",
+      "name": "approve-private-control.mjs"
+    },
+    {
+      "sha256": "1F4CEC3A115E77EA437F07CAD81149826E5C4A5287F04BA2F76AAA0DD55440C2",
+      "name": "Fixture-Control.ps1"
+    },
+    {
+      "sha256": "28DDEE55185A45EF6956E70A9AD4E6616BF94DE5EA87C9C4B25E72AC63D350D8",
+      "name": "Initialize-PrivateFixture.ps1"
+    },
+    {
+      "sha256": "F14F65E4BF8E0F7B2E7CBA92B5B5B9E948E9AB64D3545838544FA7BCE660CCB6",
+      "name": "prepare-gateway.mjs"
+    },
+    {
+      "sha256": "0690204F568D1D709DE30088426CDCAB0BF8EC6FAB45DC99D63D79B3490859B0",
+      "name": "run-private-runtime.sh"
+    },
+    {
+      "sha256": "09DE2F1024BED2C603A7A40ED73ED847932ECAC5178DA514803A8AD5E435016C",
+      "name": "Start-PrivateGateway.ps1"
+    },
+    {
+      "sha256": "6DCBB2CA1D36A743A2BD8C4E8466AF0A7A5C74A28469B7523D77278B7C80840E",
+      "name": "stop-private-runtime.mjs"
+    },
+    {
+      "sha256": "39E23E001714B3A5B0E7F15F5436EE13C69D5D340093E95D06A89A81063933C1",
+      "name": "synthesis-backend.mjs"
+    },
+    {
+      "sha256": "88EAE88EFB9A1B0146C77AA39B1047E2D959466CACABF62D2CD59696921147EF",
+      "name": "auth-client/Program.cs"
+    },
+    {
+      "sha256": "554DBF1119B6E199F62C93CB148D5C6BE7CA4F0F30D332FE850C21DE6798B74A",
+      "name": "auth-client/AuthClient.csproj"
+    }
+  ],
+  "helperBinaries": [
+    {
+      "sha256": "4C756B52907FF883968E2C90062161D0679A119F7E58AD3518CBB19B2DCA918C",
+      "name": "AuthClient.dll"
+    },
+    {
+      "sha256": "96BC2946DFF8790400D652EC7F8DE7BB043E954980D59470C112788B68A1FBD3",
+      "name": "AuthClient.runtimeconfig.json"
+    }
+  ],
+  "limit": "Recorded B helper/product build association before the final Tray-only fix. This is not a new final-head B execution."
+}

@@ -1,0 +1,13 @@
+{
+  "head": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "at": "2026-10-31T21:40:08.7111550Z",
+  "NodeTtsEnabled": false,
+  "UseGatewayVoice": true,
+  "automaticSpeechEnabled": false,
+  "microphoneEnabled": false,
+  "nodeEnabled": false,
+  "heldAckUtc": "2026-10-31T21:39:27.0244801Z",
+  "synthesisTimeoutMs": 60000,
+  "conservativeDeadlineUtc": "2026-10-31T21:40:27.0244801Z",
+  "meaning": "Persisted local permission false, before backend release. Windows held acknowledgement plus timeout is a conservative upper bound on the original request deadline."
+}

@@ -1,0 +1,35 @@
+{
+  "provider": "openai",
+  "count": 1,
+  "pending": [],
+  "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb",
+  "events": [
+    {
+      "event": "backend_ready",
+      "at": "2026-10-31T20:24:10.758Z",
+      "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb",
+      "audioBytes": 128044
+    },
+    {
+      "event": "synthesis_received",
+      "at": "2026-10-31T20:25:13.73Z",
+      "id": 1,
+      "held": false,
+      "textChars": 48,
+      "textSHA256": "b9a85e64c0362edcfd1e4c2b65698db6057b23aac333b780076ba892b8340f8b",
+      "requestedFormat": "wav"
+    },
+    {
+      "event": "audio_response_released",
+      "at": "2026-10-31T20:25:13.73Z",
+      "id": 1,
+      "bytes": 128044,
+      "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb"
+    },
+    {
+      "event": "audio_response_finished",
+      "at": "2026-10-31T20:25:13.732Z",
+      "id": 1
+    }
+  ]
+}

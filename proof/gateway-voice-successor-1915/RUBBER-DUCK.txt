@@ -1,0 +1,54 @@
+Independent implementation and proof-plan review, 2026-10-31
+Tool/role: collaboration subagent /root/voice_cancel_analysis, read-only.
+No dedicated rubber-duck task tool was advertised. Effective model identity was
+not independently verified. This narrative is not a canonical helper status,
+enforced isolation, test execution, native proof, or authority to publish.
+
+Scope: verified the reachable cleared-target automatic-speech defect through
+App notification dispatch, coordinator forwarding, page suspension/removal and
+GatewaySpeechPlayback. Independently reviewed the proposed guard and eight new
+regression cases, including a held manual preview with no active chat target.
+Then reviewed the fresh real-Gateway authority fixture and planned C/D proof.
+
+Finding disposition: parent verified the P2 with six failing negative cases and
+two passing positive cases before the production fix. All 27 playback cases pass
+after the guard change. Automatic speech now requires an active target, rejects
+attributed mismatches before retiring another operation, and preserves manual
+preview/Read Aloud plus previously supported unattributed replies while active.
+
+Proof-plan findings: freeze source/tree and executable plus Tray/Shared/Connection
+DLL hashes after the final build. Apphost hash alone is insufficient. Retain B's
+actual 94c9a2f2 provenance. The relevant Shared/Connection/settings sources are
+unchanged at final head dc7583bd; that is source correspondence, not a new B run.
+Calibrate the target-PID audio observer before negative C observations, persist
+opt-out before releasing authentic held audio, and correlate transport delivery.
+Samples do not establish audibility or absolute zero Play-call count. D needs the
+active expanded controls and an actual valid Axe report. A reused helper is not
+a reused result, nor an inventory-owned accessibility command execution.
+
+Pool and readiness limits: declare windows-winui-interactive and retain the
+previously requested windows-clean-installer-upgrade proof as blocked. B/C/D
+cannot prove signed clean install/upgrade, ARM64, SAC, product WSL setup, MXC,
+fresh Fish synthesis, microphone recovery or inward local TTS. Old evidence
+remains explicitly historical. Original CI cancellation assertion remains
+unclassified despite matched local passes. Canonical reviews 1/3 were incomplete
+for missing cross-owner inputs and are preserved. This rubber-duck review does
+not replace the required independent source review.
+
+Conclusion: sufficient to prepare a concrete draft with explicit blockers after
+the verified fix, refreshed validation and review disposition. Not ready to land
+or a claim that all required proof is complete. No files/processes/fixture state
+were modified by the independent reviewer.
+
+Final permission-fix follow-up at62cbade5: independent collaboration reviewer
+found no new demonstrated bypass/manual regression/production lock cycle in the
+bounded review. Real readiness predicate applies before manual/automatic admission
+and after awaited responses; Saved revocation retires pending/playing work. The
+predicate reads a boolean without taking the save lock. Five new tests exercise
+real SettingsManager/Saved/reload plus substituted external transport/native callback.
+The actual MCP permission-store path was inspected and confirmed appropriate.
+Pre-commit results4red +1separate red, then14green are source-associated, not relabeled
+committed runs. Final committed WinUI14/14 also passed. Plan limits remain no
+client-delivery receipt, no absolute Play counts/audibility, and bounded samples.
+The reviewer changed no source, fixture or process state and did not replace
+canonical review7 or execute the native proof.
