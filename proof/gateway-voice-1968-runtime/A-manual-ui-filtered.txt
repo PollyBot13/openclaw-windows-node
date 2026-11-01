@@ -1,0 +1,16 @@
+					115 status bar ID: ChatGatewaySpeechStatus
+						118 text Gateway voice: fish-audio. ID: Message
+						119 button Stop
+								79 group This is a synthetic Windows Companion voice proof. Reply with exactly: Gateway voice test one two three. Do not call any tools.
+									80 text This is a synthetic Windows Companion voice proof. Reply with exactly: Gateway voice test one two th
+								84 group Assistant: Gateway voice test one two three.
+									87 text Gateway voice test one two three.
+Gateway voice: fish-audio.
+Stop
+This is a synthetic Windows Companion voice proof. Reply with exactly: Gateway voice test one two three. Do not call any tools.
+Gateway voice test one two three.
+Focused element: 80 text This is a synthetic Windows Companion voice proof. Reply with exactly: Gateway voice test one two th
+Gateway voice: fish-audio.
+Stop
+This is a synthetic Windows Companion voice proof. Reply with exactly: Gateway voice test one two three. Do not call any tools.
+Gateway voice test one two three.

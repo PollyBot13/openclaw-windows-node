@@ -1,0 +1,16 @@
+						254 text Gateway voice: fish-audio. ID: Message
+						255 button Stop
+									216 button Read aloud
+								234 group This is the automatic synthetic voice check. Reply with exactly: Automatic Gateway voice confirmation. The synthetic test is complete. Do not call any tools.
+									235 text This is the automatic synthetic voice check. Reply with exactly: Automatic Gateway voice confirmatio
+								243 group Assistant: Automatic Gateway voice confirmation. The synthetic test is complete.
+									246 text Automatic Gateway voice confirmation. The synthetic test is complete.
+									249 button Read aloud
+Gateway voice: fish-audio.
+Stop
+This is the automatic synthetic voice check. Reply with exactly: Automatic Gateway voice confirmation. The synthetic test is complete. Do not call any tools.
+Automatic Gateway voice confirmation. The synthetic test is complete.
+Gateway voice: fish-audio.
+Stop
+This is the automatic synthetic voice check. Reply with exactly: Automatic Gateway voice confirmation. The synthetic test is complete. Do not call any tools.
+Automatic Gateway voice confirmation. The synthetic test is complete.

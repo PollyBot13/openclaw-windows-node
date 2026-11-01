@@ -1,0 +1,210 @@
+{
+  "SchemaVersion": 1,
+  "StartedUtc": "2026-11-01T14:11:31.4065722+01:00",
+  "Observer": "Target-PID CoreAudio render-session state and peak meter only",
+  "RecordedAudio": false,
+  "MicrophoneOrCaptureEndpointsAccessed": false,
+  "VolumeOrDeviceSettingsChanged": false,
+  "UnrelatedProcessOrEndpointDetailsRetained": false,
+  "Framework": ".NET 10.0.14",
+  "Architecture": "X64",
+  "ThreadApartment": "MTA",
+  "RunnerAssemblySHA256": "3137D2CB1BBCC34803316FEE3D2B1F3CE1085522E48CF4B1ABABA082154CC96D",
+  "Transitions": [
+    {
+      "AtUtc": "2026-11-01T14:11:31.4398843+01:00",
+      "ElapsedMs": 33.283,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:12.1747215+01:00",
+      "ElapsedMs": 220768.1203,
+      "Phase": "fish-manual",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:17.6517355+01:00",
+      "ElapsedMs": 226245.1344,
+      "Phase": "fish-manual",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:17.777232+01:00",
+      "ElapsedMs": 226370.6309,
+      "Phase": "fish-manual",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:20.7089745+01:00",
+      "ElapsedMs": 229302.3751,
+      "Phase": "fish-manual",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:20.7725807+01:00",
+      "ElapsedMs": 229365.9802,
+      "Phase": "fish-manual",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:15:59.3090875+01:00",
+      "ElapsedMs": 267902.4872,
+      "Phase": "fish-automatic",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:16:29.1712236+01:00",
+      "ElapsedMs": 297764.6224,
+      "Phase": "fish-automatic",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:16:33.7900705+01:00",
+      "ElapsedMs": 302383.4694,
+      "Phase": "fish-automatic",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:22.7673767+01:00",
+      "ElapsedMs": 351360.7756,
+      "Phase": "fish-stop-passage",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:36.2924741+01:00",
+      "ElapsedMs": 364885.874,
+      "Phase": "fish-stop-passage",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:36.3554049+01:00",
+      "ElapsedMs": 364948.8039,
+      "Phase": "fish-stop-passage",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:43.9458874+01:00",
+      "ElapsedMs": 372539.2875,
+      "Phase": "fish-stop-passage",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:44.0044003+01:00",
+      "ElapsedMs": 372597.7995,
+      "Phase": "fish-stop-passage",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:17:50.0268747+01:00",
+      "ElapsedMs": 378620.2736,
+      "Phase": "fish-after-stop",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    }
+  ],
+  "TargetPid": 29904,
+  "TargetExecutable": "OpenClaw.Tray.WinUI.exe",
+  "TargetExecutableSHA256": "83004C04D8BF12307825A4CE453222CF30A29EA42F8D8C01CF9EC3157C7735C5",
+  "DurationLimitMs": 600000,
+  "SamplingIntervalRequestedMs": 50,
+  "LinearPeakThreshold": 0.0001,
+  "NAudioWasapiVersion": "2.3.0.0",
+  "NAudioWasapiSHA256": "A05E371ABF96195770AC4F84653D987D63731FED528E98C7FE0D10CE66E37D7E",
+  "CompletionReason": "ControllerStopSignal",
+  "SampleCount": 6356,
+  "TargetSessionObserved": true,
+  "ActiveTargetSessionObserved": true,
+  "AboveThresholdObserved": true,
+  "MaximumPeak": 0.91665435,
+  "QueryErrorCount": 0,
+  "QueryErrorHresults": [],
+  "PhaseStatistics": [
+    {
+      "Phase": "baseline",
+      "Samples": 3544,
+      "FirstSampleUtc": "2026-11-01T14:11:31.4398843+01:00",
+      "LastSampleUtc": "2026-11-01T14:15:12.1119923+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "fish-manual",
+      "Samples": 757,
+      "FirstSampleUtc": "2026-11-01T14:15:12.1747215+01:00",
+      "LastSampleUtc": "2026-11-01T14:15:59.2488503+01:00",
+      "ActiveSamples": 47,
+      "AboveThresholdSamples": 48,
+      "MaximumPeak": 0.8593476,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "fish-automatic",
+      "Samples": 1339,
+      "FirstSampleUtc": "2026-11-01T14:15:59.3090875+01:00",
+      "LastSampleUtc": "2026-11-01T14:17:22.7038626+01:00",
+      "ActiveSamples": 74,
+      "AboveThresholdSamples": 74,
+      "MaximumPeak": 0.6842553,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "fish-stop-passage",
+      "Samples": 439,
+      "FirstSampleUtc": "2026-11-01T14:17:22.7673767+01:00",
+      "LastSampleUtc": "2026-11-01T14:17:49.9654439+01:00",
+      "ActiveSamples": 123,
+      "AboveThresholdSamples": 123,
+      "MaximumPeak": 0.91665435,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "fish-after-stop",
+      "Samples": 277,
+      "FirstSampleUtc": "2026-11-01T14:17:50.0268747+01:00",
+      "LastSampleUtc": "2026-11-01T14:18:07.2315348+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    }
+  ],
+  "Outcome": "Observed",
+  "Assurance": "Meter/session samples require a matched positive calibration. No audio recording or audibility claim. Sampled zero activity is bounded to the recorded window and interval, not an unmeasured zero-native-call count.",
+  "FinishedUtc": "2026-11-01T14:18:07.2982191+01:00",
+  "ElapsedMs": 395891.6207,
+  "ExitCode": 0,
+  "RawReportSHA256": "7245FED7CF0308C11D944FCD183BB05E5C5B68F2D8DC2CC2A3193A5D83064AB1",
+  "Projection": "All metadata, transitions and phase statistics retained; individual meter samples retained locally in the hashed original."
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "Windows-provider synthetic profile. Unloaded-Piper migration separately retained.",
+  "from": "official signed portable v2026.9.8-1",
+  "result": "passed application/data upgrade",
+  "installerUpgradeClaim": false,
+  "to": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "UseGatewayVoiceDefault": false,
+  "settingsPreservedAfterCurrentSave": {
+    "TtsProvider": "windows",
+    "TtsWindowsVoiceId": null,
+    "NodeTtsEnabled": true,
+    "TtsPiperVoiceId": "en_US-amy-low",
+    "AppTheme": "System",
+    "VoiceTtsEnabled": false
+  },
+  "oldFileUnchangedOnLoad": true
+}

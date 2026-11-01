@@ -1,0 +1,10 @@
+{
+  "tag": "v2026.9.8-1",
+  "exeSha256": "1E10FA66F2F38B8521263D9F6080F9C6283F55B35474CBA6E2B60AC46370C462",
+  "dllSha256": "5D1250B8A3BC7B64B11D9F75BE5A9DB8E9E154B679598422067287AA9E705656",
+  "version": "2026.9.8.0",
+  "signatureStatus": "Valid",
+  "signer": "CN=OpenClaw Foundation, O=OpenClaw Foundation, L=Mill Valley, S=California, C=US",
+  "extractedMembers": 997,
+  "executed": false
+}

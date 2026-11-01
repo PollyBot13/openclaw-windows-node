@@ -1,0 +1,25 @@
+{
+  "permission": {
+    "classification": "CapabilityReload invokes reconnect",
+    "releaseResult": "forward_not_open",
+    "oldConnection": "6393a16f-5cb4-4d57-a7f2-14dade376baf",
+    "restoration": "No replay during bounded observation; fresh explicit playback on new connection",
+    "outcome": "Transport retirement observed; delivered-late permission rejection not exercised"
+  },
+  "limits": [
+    "WebSocket send completion proves forwarding, not direct observation of app JSON parsing. Fresh playback later on the same ordered connection supports an inference that its consumer advanced past the old response.",
+    "Zero render samples are bounded observations, not a count of native playback API calls.",
+    "Local synthetic OpenAI-compatible WAV backend; these C checks do not prove Fish provider behavior."
+  ],
+  "stop": {
+    "connection": "7ccccd92-1353-41d9-b572-67b474e0cac6",
+    "audioSHA256": "e6dbe0941be9c190301b38387882265c17566e17dfc510933e42fb58864f2ebb",
+    "outcome": "Same-connection authentic late-response forwarding, bounded native silence, and fresh recovery observed",
+    "heldRequest": "a78acf80-4697-4efa-8bd1-17399d189685",
+    "silentSeconds": 16.7154271,
+    "recoveryRequest": "3d2012c8-b8ef-42bb-8715-18ee7b68bb91",
+    "recoveryActiveSamples": 65,
+    "releaseWithinSeconds": 34.353,
+    "silentSamples": 269
+  }
+}

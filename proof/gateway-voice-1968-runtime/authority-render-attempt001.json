@@ -1,0 +1,162 @@
+{
+  "SchemaVersion": 1,
+  "StartedUtc": "2026-11-01T14:18:07.459424+01:00",
+  "Observer": "Target-PID CoreAudio render-session state and peak meter only",
+  "RecordedAudio": false,
+  "MicrophoneOrCaptureEndpointsAccessed": false,
+  "VolumeOrDeviceSettingsChanged": false,
+  "UnrelatedProcessOrEndpointDetailsRetained": false,
+  "Framework": ".NET 10.0.14",
+  "Architecture": "X64",
+  "ThreadApartment": "MTA",
+  "RunnerAssemblySHA256": "3137D2CB1BBCC34803316FEE3D2B1F3CE1085522E48CF4B1ABABA082154CC96D",
+  "Transitions": [
+    {
+      "AtUtc": "2026-11-01T14:18:07.4909078+01:00",
+      "ElapsedMs": 31.4489,
+      "Phase": "baseline",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:28.1625202+01:00",
+      "ElapsedMs": 20703.062,
+      "Phase": "c-positive",
+      "TargetSessions": 0,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:32.5888065+01:00",
+      "ElapsedMs": 25129.3487,
+      "Phase": "c-positive",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:32.6519207+01:00",
+      "ElapsedMs": 25192.4631,
+      "Phase": "c-positive",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:36.6263737+01:00",
+      "ElapsedMs": 29166.9161,
+      "Phase": "c-positive",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:36.6876805+01:00",
+      "ElapsedMs": 29228.2224,
+      "Phase": "c-positive",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:18:52.3668155+01:00",
+      "ElapsedMs": 44907.3571,
+      "Phase": "c-held",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:19:08.1054739+01:00",
+      "ElapsedMs": 60646.0154,
+      "Phase": "c-revoked",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:19:21.6746965+01:00",
+      "ElapsedMs": 74215.2391,
+      "Phase": "c-restored-no-replay",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    }
+  ],
+  "TargetPid": 44684,
+  "TargetExecutable": "OpenClaw.Tray.WinUI.exe",
+  "TargetExecutableSHA256": "83004C04D8BF12307825A4CE453222CF30A29EA42F8D8C01CF9EC3157C7735C5",
+  "DurationLimitMs": 600000,
+  "SamplingIntervalRequestedMs": 50,
+  "LinearPeakThreshold": 0.0001,
+  "NAudioWasapiVersion": "2.3.0.0",
+  "NAudioWasapiSHA256": "A05E371ABF96195770AC4F84653D987D63731FED528E98C7FE0D10CE66E37D7E",
+  "CompletionReason": "ControllerStopSignal",
+  "SampleCount": 1451,
+  "TargetSessionObserved": true,
+  "ActiveTargetSessionObserved": true,
+  "AboveThresholdObserved": true,
+  "MaximumPeak": 0.15259518,
+  "QueryErrorCount": 0,
+  "QueryErrorHresults": [],
+  "PhaseStatistics": [
+    {
+      "Phase": "baseline",
+      "Samples": 332,
+      "FirstSampleUtc": "2026-11-01T14:18:07.4909078+01:00",
+      "LastSampleUtc": "2026-11-01T14:18:28.1016328+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c-positive",
+      "Samples": 389,
+      "FirstSampleUtc": "2026-11-01T14:18:28.1625202+01:00",
+      "LastSampleUtc": "2026-11-01T14:18:52.3053698+01:00",
+      "ActiveSamples": 64,
+      "AboveThresholdSamples": 65,
+      "MaximumPeak": 0.15259518,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c-held",
+      "Samples": 253,
+      "FirstSampleUtc": "2026-11-01T14:18:52.3668155+01:00",
+      "LastSampleUtc": "2026-11-01T14:19:08.0444857+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c-revoked",
+      "Samples": 218,
+      "FirstSampleUtc": "2026-11-01T14:19:08.1054739+01:00",
+      "LastSampleUtc": "2026-11-01T14:19:21.6115502+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c-restored-no-replay",
+      "Samples": 259,
+      "FirstSampleUtc": "2026-11-01T14:19:21.6746965+01:00",
+      "LastSampleUtc": "2026-11-01T14:19:37.7338285+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    }
+  ],
+  "Outcome": "Observed",
+  "Assurance": "Meter/session samples require a matched positive calibration. No audio recording or audibility claim. Sampled zero activity is bounded to the recorded window and interval, not an unmeasured zero-native-call count.",
+  "FinishedUtc": "2026-11-01T14:19:37.7990205+01:00",
+  "ElapsedMs": 90339.5641,
+  "ExitCode": 0,
+  "RawReportSHA256": "88492D82AA7DBAE429F714937A6A70F8D0C32992ABEA4603583E719E94964025",
+  "Projection": "All metadata, transitions and phase statistics retained; individual meter samples retained locally in the hashed original."
+}

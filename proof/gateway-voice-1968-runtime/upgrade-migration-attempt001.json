@@ -1,0 +1,9 @@
+{
+  "settingsSchema": 2,
+  "claimedPassed": false,
+  "observedProvider": "kokoro",
+  "newGatewayVoiceDefault": false,
+  "observedPiperVoice": "en_US-amy-low",
+  "status": "investigating existing migration policy",
+  "fromTag": "v2026.9.8-1"
+}

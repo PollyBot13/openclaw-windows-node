@@ -1,0 +1,15 @@
+{
+  "microphoneAccessed": false,
+  "pid": 29904,
+  "automaticVoiceRestoredOff": true,
+  "manualRenderObserved": true,
+  "automaticRenderObserved": true,
+  "humanAudibility": "Current-run confirmations requested and pending; historical confirmations are not reused.",
+  "actualUiProvider": "fish-audio",
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "countingRenderObserved": true,
+  "audioRecorded": false,
+  "afterStopActiveSamples": 0,
+  "afterStopAboveThresholdSamples": 0,
+  "afterStopSamplesCollected": 277
+}

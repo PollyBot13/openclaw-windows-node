@@ -1,0 +1,22 @@
+{
+  "tag": "v2026.9.8-1",
+  "pid": 12296,
+  "modules": [
+    {
+      "name": "OpenClaw.Tray.WinUI.exe",
+      "sha256": "1E10FA66F2F38B8521263D9F6080F9C6283F55B35474CBA6E2B60AC46370C462"
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.dll",
+      "sha256": "5D1250B8A3BC7B64B11D9F75BE5A9DB8E9E154B679598422067287AA9E705656"
+    },
+    {
+      "name": "OpenClaw.Connection.dll",
+      "sha256": "C3C445A78BFB15DE27152978B4D5A62A901E628FBAE2CB2098930E4E7846DF71"
+    },
+    {
+      "name": "OpenClaw.Shared.dll",
+      "sha256": "23DAFC92803377C58E11BEE1212F4971D268883711C603D9669FBE2F512D2BCC"
+    }
+  ]
+}

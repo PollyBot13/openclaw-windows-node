@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-01T13:23:22.483Z",
+  "action": "native ChatGatewaySpeechStatus Stop click",
+  "state": [
+    "\t\t\t\t\t182 status bar ID: ChatGatewaySpeechStatus",
+    "\t\t\t\t\t\t185 text Generating Gateway speech… ID: Message",
+    "\t\t\t\t\t\t186 button Stop",
+    "\t\t\t\t\t\t\t\t\t180 button Stop"
+  ]
+}

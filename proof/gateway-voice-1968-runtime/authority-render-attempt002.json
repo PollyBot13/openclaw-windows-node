@@ -1,0 +1,188 @@
+{
+  "SchemaVersion": 1,
+  "StartedUtc": "2026-11-01T14:20:38.4901551+01:00",
+  "Observer": "Target-PID CoreAudio render-session state and peak meter only",
+  "RecordedAudio": false,
+  "MicrophoneOrCaptureEndpointsAccessed": false,
+  "VolumeOrDeviceSettingsChanged": false,
+  "UnrelatedProcessOrEndpointDetailsRetained": false,
+  "Framework": ".NET 10.0.14",
+  "Architecture": "X64",
+  "ThreadApartment": "MTA",
+  "RunnerAssemblySHA256": "3137D2CB1BBCC34803316FEE3D2B1F3CE1085522E48CF4B1ABABA082154CC96D",
+  "Transitions": [
+    {
+      "AtUtc": "2026-11-01T14:20:38.5254619+01:00",
+      "ElapsedMs": 35.2759,
+      "Phase": "baseline",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:20:38.8538433+01:00",
+      "ElapsedMs": 363.6573,
+      "Phase": "c-recovery-after-reconnect",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:22:55.5313127+01:00",
+      "ElapsedMs": 137041.1279,
+      "Phase": "c-recovery-after-reconnect",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:22:55.5930289+01:00",
+      "ElapsedMs": 137102.8436,
+      "Phase": "c-recovery-after-reconnect",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:22:59.5724856+01:00",
+      "ElapsedMs": 141082.301,
+      "Phase": "c-recovery-after-reconnect",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:23:05.679833+01:00",
+      "ElapsedMs": 147189.6486,
+      "Phase": "c2-held-before-stop",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:23:31.0357512+01:00",
+      "ElapsedMs": 172545.5657,
+      "Phase": "c2-stopped-before-release",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:23:44.2707715+01:00",
+      "ElapsedMs": 185780.5869,
+      "Phase": "c2-released-after-stop",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:24:01.0484566+01:00",
+      "ElapsedMs": 202558.2716,
+      "Phase": "c2-fresh-recovery",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    },
+    {
+      "AtUtc": "2026-11-01T14:24:06.222981+01:00",
+      "ElapsedMs": 207732.7959,
+      "Phase": "c2-fresh-recovery",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 1,
+      "AboveThreshold": true
+    },
+    {
+      "AtUtc": "2026-11-01T14:24:10.2671635+01:00",
+      "ElapsedMs": 211776.9781,
+      "Phase": "c2-fresh-recovery",
+      "TargetSessions": 1,
+      "ActiveTargetSessions": 0,
+      "AboveThreshold": false
+    }
+  ],
+  "TargetPid": 44684,
+  "TargetExecutable": "OpenClaw.Tray.WinUI.exe",
+  "TargetExecutableSHA256": "83004C04D8BF12307825A4CE453222CF30A29EA42F8D8C01CF9EC3157C7735C5",
+  "DurationLimitMs": 600000,
+  "SamplingIntervalRequestedMs": 50,
+  "LinearPeakThreshold": 0.0001,
+  "NAudioWasapiVersion": "2.3.0.0",
+  "NAudioWasapiSHA256": "A05E371ABF96195770AC4F84653D987D63731FED528E98C7FE0D10CE66E37D7E",
+  "CompletionReason": "ControllerStopSignal",
+  "SampleCount": 3558,
+  "TargetSessionObserved": true,
+  "ActiveTargetSessionObserved": true,
+  "AboveThresholdObserved": true,
+  "MaximumPeak": 0.15259518,
+  "QueryErrorCount": 0,
+  "QueryErrorHresults": [],
+  "PhaseStatistics": [
+    {
+      "Phase": "baseline",
+      "Samples": 5,
+      "FirstSampleUtc": "2026-11-01T14:20:38.5254619+01:00",
+      "LastSampleUtc": "2026-11-01T14:20:38.7918745+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c-recovery-after-reconnect",
+      "Samples": 2358,
+      "FirstSampleUtc": "2026-11-01T14:20:38.8538433+01:00",
+      "LastSampleUtc": "2026-11-01T14:23:05.6178003+01:00",
+      "ActiveSamples": 65,
+      "AboveThresholdSamples": 64,
+      "MaximumPeak": 0.15259518,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c2-held-before-stop",
+      "Samples": 408,
+      "FirstSampleUtc": "2026-11-01T14:23:05.679833+01:00",
+      "LastSampleUtc": "2026-11-01T14:23:30.9727466+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c2-stopped-before-release",
+      "Samples": 213,
+      "FirstSampleUtc": "2026-11-01T14:23:31.0357512+01:00",
+      "LastSampleUtc": "2026-11-01T14:23:44.2076846+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c2-released-after-stop",
+      "Samples": 269,
+      "FirstSampleUtc": "2026-11-01T14:23:44.2707715+01:00",
+      "LastSampleUtc": "2026-11-01T14:24:00.9861986+01:00",
+      "ActiveSamples": 0,
+      "AboveThresholdSamples": 0,
+      "MaximumPeak": 0,
+      "QueryErrors": 0
+    },
+    {
+      "Phase": "c2-fresh-recovery",
+      "Samples": 305,
+      "FirstSampleUtc": "2026-11-01T14:24:01.0484566+01:00",
+      "LastSampleUtc": "2026-11-01T14:24:19.9594295+01:00",
+      "ActiveSamples": 65,
+      "AboveThresholdSamples": 65,
+      "MaximumPeak": 0.15259518,
+      "QueryErrors": 0
+    }
+  ],
+  "Outcome": "Observed",
+  "Assurance": "Meter/session samples require a matched positive calibration. No audio recording or audibility claim. Sampled zero activity is bounded to the recorded window and interval, not an unmeasured zero-native-call count.",
+  "FinishedUtc": "2026-11-01T14:24:20.0276323+01:00",
+  "ElapsedMs": 221537.4512,
+  "ExitCode": 0,
+  "RawReportSHA256": "60BA664EA50EEEDBAC6DD8FF38957E8170BFE4CA6321B6CFCE0A1200C552CA05",
+  "Projection": "All metadata, transitions and phase statistics retained; individual meter samples retained locally in the hashed original."
+}

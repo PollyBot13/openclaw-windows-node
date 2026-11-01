@@ -1,0 +1,172 @@
+{
+  "earlierAttempts": "Original broader ledger retained locally; this projection contains the provenance-verified run only.",
+  "events": [
+    {
+      "at": "2026-11-01T12:56:36.0826826+01:00",
+      "name": "loaded_product_assembly_verified",
+      "details": {
+        "file": "OpenClaw.Shared.dll",
+        "sha256": "7008F7CFB71E18E97A7CD7250F1ED809F9CA3178725302ACB188EB79E8BFC40B",
+        "location": "current verified product output"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.1028038+01:00",
+      "name": "loaded_product_assembly_verified",
+      "details": {
+        "file": "OpenClaw.Connection.dll",
+        "sha256": "EAF40B2EE37BBAF112C0ABD3D320FF1CB9466DFCC8CE5EAE978D9A81C7B93C6F",
+        "location": "current verified product output"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.1098309+01:00",
+      "name": "loaded_product_assembly_verified",
+      "details": {
+        "file": "OpenClaw.Tray.WinUI.dll",
+        "sha256": "ED6EE6EA1E45013347181DE9779880AA45A348AC0866BF0B0B6D0DE55448ECC8",
+        "location": "current verified product output"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.1114009+01:00",
+      "name": "helper_start",
+      "details": {
+        "command": "check-readonly",
+        "assemblyMode": "loaded product paths and SHA256 verified; no product rebuild",
+        "helperSHA256": "5364201887121ABB33B75B3E8319D8354065DA39C3B444F9150A32611960820C"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.1861295+01:00",
+      "name": "connection_status",
+      "details": {
+        "status": "Connecting"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.432665+01:00",
+      "name": "connection_status",
+      "details": {
+        "status": "Connected"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.4726292+01:00",
+      "name": "actual_hello_grants",
+      "details": {
+        "label": "allowed-positive",
+        "scopes": [
+          "operator.admin",
+          "operator.pairing"
+        ],
+        "ttsStatusAdvertised": true,
+        "ttsSpeakAdvertised": true
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.5114734+01:00",
+      "name": "production_rpc_intent",
+      "details": {
+        "method": "tts.speak"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.5782072+01:00",
+      "name": "allowed_synthesis_positive",
+      "details": {
+        "provider": "openai",
+        "mime": "audio/wav",
+        "bytes": 128044,
+        "backendBefore": 1,
+        "backendAfter": 2,
+        "delta": 1,
+        "played": false
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.5826104+01:00",
+      "name": "connection_status",
+      "details": {
+        "status": "Connecting"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.6208868+01:00",
+      "name": "connection_status",
+      "details": {
+        "status": "Connected"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.6890537+01:00",
+      "name": "actual_hello_grants",
+      "details": {
+        "label": "readonly-reconnected-no-shared-token",
+        "scopes": [
+          "operator.read"
+        ],
+        "ttsStatusAdvertised": true,
+        "ttsSpeakAdvertised": true
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.6900615+01:00",
+      "name": "production_rpc_intent",
+      "details": {
+        "method": "tts.status"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.8751248+01:00",
+      "name": "readonly_tts_status_success",
+      "details": {
+        "provider": "openai",
+        "readOnlyStatusSucceeded": true
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.8899146+01:00",
+      "name": "readonly_production_preflight",
+      "details": {
+        "classification": "PermissionRequired",
+        "backendBefore": 2,
+        "backendAfter": 2,
+        "delta": 0
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.8996199+01:00",
+      "name": "readonly_raw_rpc_intent",
+      "details": {
+        "method": "tts.speak",
+        "purpose": "real Gateway denial independent of Companion preflight"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.901553+01:00",
+      "name": "production_rpc_intent",
+      "details": {
+        "method": "tts.speak"
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.9138558+01:00",
+      "name": "readonly_raw_gateway_result",
+      "details": {
+        "classification": "GatewayPermissionRequired",
+        "backendBefore": 2,
+        "backendAfter": 2,
+        "delta": 0
+      }
+    },
+    {
+      "at": "2026-11-01T12:56:36.9216049+01:00",
+      "name": "helper_complete",
+      "details": {
+        "command": "check-readonly"
+      }
+    }
+  ],
+  "sourceSHA256": "E2E3E1865A5DEE6F662EAD315F7BC07D02077062F9A44B644B174DF5512AF446"
+}

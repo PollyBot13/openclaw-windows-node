@@ -1,0 +1,10 @@
+{
+  "attempt": "upgrade-migration-attempt001.json",
+  "disposition": "The original unchanged-Piper assertion was overbroad for a schema-v1 profile without downloaded voice assets. The observed Piper-to-Kokoro migration is the existing intended main behavior, not an introduced Gateway voice migration.",
+  "owner": "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs:MigrateTtsProvider",
+  "baseline": "a4dd026cc5f85a444a0fcd05eef5b86282dbda8c",
+  "feature": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "staticEvidence": "The SettingsManager feature diff adds only the UseGatewayVoice property. Existing main tests explicitly expect schema-v1/unloaded Piper to become Kokoro and downloaded Piper or schema-v2 chosen Piper to remain Piper.",
+  "actualUpgradeControl": "upgrade-windows-summary.json",
+  "limits": "Do not claim every old provider preference stays identical. No downloaded-Piper runtime upgrade was exercised; no fake model assets were created. No installer upgrade is claimed."
+}

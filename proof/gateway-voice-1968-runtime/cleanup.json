@@ -1,0 +1,23 @@
+{
+  "stateDeleted": false,
+  "ownedLinuxProcesses": [
+    {
+      "exited": true,
+      "pid": 7456
+    },
+    {
+      "exited": true,
+      "pid": 7286
+    },
+    {
+      "exited": true,
+      "pid": 7307
+    },
+    {
+      "exited": true,
+      "pid": 7278
+    }
+  ],
+  "at": "2026-11-01T13:28:36.5088551Z",
+  "sharedServicesChanged": false
+}

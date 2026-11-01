@@ -1,0 +1,12 @@
+{
+  "NodeTtsEnabled": true,
+  "TtsPiperVoiceId": "en_US-amy-low",
+  "TtsProvider": "windows",
+  "newFieldPresent": false,
+  "AppTheme": "System",
+  "TtsKokoroVoiceId": null,
+  "TtsWindowsVoiceId": null,
+  "VoiceTtsEnabled": false,
+  "from": "official signed portable v2026.9.8-1",
+  "settingsSha256": "7BD72345A47AFB70CC72AA614D7BDD6F3DEFF743BE448407F3A6AEE0B998EE54"
+}

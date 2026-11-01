@@ -1,0 +1,34 @@
+{
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "tree": "1881b78edf3334d473e155733c3e8f58e4b94eca",
+  "dirty": [],
+  "preparedUtc": "2026-11-01T11:42:46.9072876Z",
+  "configuration": "Debug",
+  "architecture": "x64",
+  "files": [
+    {
+      "name": "OpenClaw.Tray.WinUI.exe",
+      "sha256": "83004C04D8BF12307825A4CE453222CF30A29EA42F8D8C01CF9EC3157C7735C5"
+    },
+    {
+      "name": "OpenClaw.Tray.WinUI.dll",
+      "sha256": "ED6EE6EA1E45013347181DE9779880AA45A348AC0866BF0B0B6D0DE55448ECC8"
+    },
+    {
+      "name": "OpenClaw.Connection.dll",
+      "sha256": "EAF40B2EE37BBAF112C0ABD3D320FF1CB9466DFCC8CE5EAE978D9A81C7B93C6F"
+    },
+    {
+      "name": "OpenClaw.Shared.dll",
+      "sha256": "7008F7CFB71E18E97A7CD7250F1ED809F9CA3178725302ACB188EB79E8BFC40B"
+    }
+  ],
+  "buildInvocation": "PR1968-narrowing-evidence-2026-11-01/reviewed-build/invocation.json",
+  "buildInvocationSha256": "E979312087AE1583055918B2AF994392D1B5E05BEE0ABB890678AB32EA64359E",
+  "profile": "new task-private profile, copied minimal existing paired connection; no chat cache copied",
+  "normalProfileUsed": false,
+  "nodeEnabled": false,
+  "microphoneEnabled": false,
+  "automaticSpeechEnabled": false,
+  "gateway": "previously approved remote Fish Gateway; credentials retained only in private temporary state"
+}

@@ -1,0 +1,8 @@
+					401 status bar ID: ChatGatewaySpeechStatus
+						404 text Gateway voice: fish-audio. ID: Message
+						405 button Stop
+									352 button Read aloud
+									366 button Read aloud
+									399 button Stop
+Gateway voice: fish-audio.
+Gateway voice: fish-audio.

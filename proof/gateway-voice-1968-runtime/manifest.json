@@ -1,0 +1,192 @@
+{
+  "createdUtc": "2026-11-01T13:30:48.1671220Z",
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "files": [
+    {
+      "sha256": "F33BA197F4883BD44B2FC64585A41D8D05C4EF412649FCB3614A93FA4C20D5C7",
+      "path": "A-after-stop-ui-filtered.txt",
+      "bytes": 264
+    },
+    {
+      "sha256": "B76044844A21804F4DEBCB7B5CDC4E9117173C72CC2E603A69E9B3C0866F3E7E",
+      "path": "A-after-stop.png",
+      "bytes": 94737
+    },
+    {
+      "sha256": "C7B3DBEE7873334C41B5F178596C2E741FE838CEDF3AAA00B6ABC1798702FB39",
+      "path": "A-automatic-ui-filtered.txt",
+      "bytes": 1139
+    },
+    {
+      "sha256": "9A0D28A47EF7EC956B346BEF9436B7755E852BBB06A6DD0CD80361742E068411",
+      "path": "A-counting-before-stop.png",
+      "bytes": 96489
+    },
+    {
+      "sha256": "4C2C26B7CC4123444A26E227CA99EBCCE7F95332513B7DD050A57993EEAC1006",
+      "path": "A-final-loaded-binaries.json",
+      "bytes": 699
+    },
+    {
+      "sha256": "BBDE95801C8FDA6B13269FACF969150589ADB0EF3E7F6CA954CAFBD2D2C7D8D7",
+      "path": "A-final-settings-sanitized.json",
+      "bytes": 176
+    },
+    {
+      "sha256": "F27A0CAC532DAEC636080151C51D3A790F442210F161929E2A786543AAB3C9C3",
+      "path": "A-manual-ui-filtered.txt",
+      "bytes": 1013
+    },
+    {
+      "sha256": "2E0B70083A508D0C55780CF17EB1C9216D4016FD29189BE88B5E08F5C5A4EFC8",
+      "path": "A-outcomes.json",
+      "bytes": 539
+    },
+    {
+      "sha256": "9844440679A0081BA9DEA47F6CFF32B0CF55D1F5AED3D4324D904C430BE99E0F",
+      "path": "authority-render-attempt001.json",
+      "bytes": 5359
+    },
+    {
+      "sha256": "108240E642352ADDE00FE70DDBCE7791E235F2FEBD35A1A5393665EE71327A34",
+      "path": "authority-render-attempt002.json",
+      "bytes": 6293
+    },
+    {
+      "sha256": "572DCF02EFC54D77BCAAA199EA21BA3335B7A9895D7C2D5000835337C3121146",
+      "path": "B/B-summary.json",
+      "bytes": 323
+    },
+    {
+      "sha256": "26B5EDDDD4BB00CE1E582BCE0B3F70A2E813CBF90F94F6844A84DB11B2DFE8A4",
+      "path": "B/current-verified-run.json",
+      "bytes": 4863
+    },
+    {
+      "sha256": "ABBF855E61C4DBE2A7C37510C859E699EFCB45E9A4E0387FF5A3AC9187B76161",
+      "path": "B/helper-build-provenance.json",
+      "bytes": 464
+    },
+    {
+      "sha256": "6A4AE7A695D40B9C288AE7C68511A6A2A0A054BBE07D18D8EB2A3C8B71646636",
+      "path": "build-identity.json",
+      "bytes": 1345
+    },
+    {
+      "sha256": "BA5026D88B3A05D5EE1254892604623EC82916374D938EB4DA4F85D07EB5F94C",
+      "path": "C-correlated-events.json",
+      "bytes": 14745
+    },
+    {
+      "sha256": "A6D91731E0C9F2A48689DBE5CCD7C8828202987B54D062320A4ABF421D2AA81B",
+      "path": "C-outcomes.json",
+      "bytes": 1385
+    },
+    {
+      "sha256": "9CEB487CDA96BD31F48A35CCFBE53121707C6BF83DDE541BA03B19087ED4DA3B",
+      "path": "C-permission-restored.json",
+      "bytes": 73
+    },
+    {
+      "sha256": "DA9EF12BECEF4A86A73A70D5D1241AC9095047CB2F4741A7E66C557E01DE627B",
+      "path": "C-permission-revoked.json",
+      "bytes": 74
+    },
+    {
+      "sha256": "D9F0020C474727E8D57AE1BBAF87BE4CD8B7EEE4C9B0631E805D0C8DBBE0716D",
+      "path": "C2-held-generating.png",
+      "bytes": 46829
+    },
+    {
+      "sha256": "152E28646C9B1D0138014DFF9EBB46C857444F6961A2B8986BDB51C0C421CEC7",
+      "path": "C2-released-no-replay.png",
+      "bytes": 45132
+    },
+    {
+      "sha256": "738C3DF160A18DFF325295337E7664D179B794C3B2D93D6D2CFDE52D7D9513DB",
+      "path": "C2-stop-action.json",
+      "bytes": 317
+    },
+    {
+      "sha256": "152E28646C9B1D0138014DFF9EBB46C857444F6961A2B8986BDB51C0C421CEC7",
+      "path": "C2-stopped-before-release.png",
+      "bytes": 45132
+    },
+    {
+      "sha256": "E13FEBD488D3B771D4C90906036076980D46304560DCA83AC25E7439EE070242",
+      "path": "C2-stopped-confirmation.json",
+      "bytes": 102
+    },
+    {
+      "sha256": "F6DD1BAC1C8F469EC883252B5A6E5868678268D596F2F4FDACE7D836071FC06D",
+      "path": "cleanup.json",
+      "bytes": 368
+    },
+    {
+      "sha256": "9119E1AD4CDB8D26E63740478DFBE83BE82B9F75512DBA975BFE3A9F1D6E1DD3",
+      "path": "independent-proof-review.md",
+      "bytes": 2303
+    },
+    {
+      "sha256": "6C8E4366DA93537915A3AA1C3625B5852C6258770E033B515C695149A986664C",
+      "path": "live-render-attempt001.json",
+      "bytes": 6796
+    },
+    {
+      "sha256": "1145F797F66CED4BEAEAF3765BDCE73CF73D4D52E926838F9D9BDE9584883185",
+      "path": "loaded-authority-interactive-binaries.json",
+      "bytes": 692
+    },
+    {
+      "sha256": "AC2BA758B71CD266D5CAA952C71816C7C76F016E734E786D37F30E437DE86221",
+      "path": "loaded-live-current-binaries.json",
+      "bytes": 692
+    },
+    {
+      "sha256": "C9887FE7829B0B9ED84E7BBE796EE2A9BB0EFFA891D70CA4F5AE0D929178AABA",
+      "path": "old-release-download.json",
+      "bytes": 179
+    },
+    {
+      "sha256": "D4B22992D07E6362054428B6C112C92656207B7A582700979A4657D1B2160DED",
+      "path": "old-release-identity.json",
+      "bytes": 404
+    },
+    {
+      "sha256": "F2E2EC47D4242AD73C8DB5ACDC3068F318BCB339B217E3A7479183FDC09D423C",
+      "path": "README.md",
+      "bytes": 5860
+    },
+    {
+      "sha256": "CF2978DBEF33F2739B69103FE36594BC87331E0025B5B4F65CD3F2DBAA57C076",
+      "path": "upgrade-migration-attempt001.json",
+      "bytes": 252
+    },
+    {
+      "sha256": "F0737494E86F8621F2A593534D9388D16AF1F9A1E344CC0AE9FA2FFB07F9D4BC",
+      "path": "upgrade-piper-disposition.json",
+      "bytes": 997
+    },
+    {
+      "sha256": "DBA38FCB1592A8F013711EDD13914B305A5542DADCFC4542979F0929B6655C1B",
+      "path": "upgrade-windows-current-loaded-binaries.json",
+      "bytes": 657
+    },
+    {
+      "sha256": "21A6AD627820786FEF7B2631DB2F062D3D48DAD9C19C19711310F70F0A14C293",
+      "path": "upgrade-windows-old-loaded-binaries.json",
+      "bytes": 628
+    },
+    {
+      "sha256": "4B9B59D2C5016B4241A60182DC7C55AF2737A26561EBD14C965995A7E4017D51",
+      "path": "upgrade-windows-old-settings.json",
+      "bytes": 382
+    },
+    {
+      "sha256": "24A11E2E9C390539B462E22CB7715140609442E54EF57C35AE15CD3A0131BCF7",
+      "path": "upgrade-windows-summary.json",
+      "bytes": 598
+    }
+  ],
+  "claim": "Measured current-head proof; human listening confirmations pending"
+}
