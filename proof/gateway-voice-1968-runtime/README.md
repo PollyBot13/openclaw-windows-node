@@ -8,9 +8,9 @@ Collected on Windows x64, 2026-11-01. No production source changes were made for
 
 | Check | Observed result | Limit |
 |---|---|---|
-| Fish Read Aloud | Native chat action, actual UI provider `fish-audio`, target process rendered audio | Current-run human audibility confirmation pending |
-| Fish automatic reply | Automatic voice enabled through native UI; synthetic reply rendered without clicking Read Aloud; UI identified `fish-audio` | Current-run human confirmation pending; automatic voice was turned back off |
-| Fish early Stop | Counting passage rendered; native Stop returned the control to Read Aloud; subsequent measured window had no active or above-threshold render samples | Human confirmation that counting stopped before forty pending |
+| Fish Read Aloud | Native chat action, actual UI provider `fish-audio`, target process rendered audio | Current-run user confirmed audible |
+| Fish automatic reply | Automatic voice enabled through native UI; synthetic reply rendered without clicking Read Aloud; UI identified `fish-audio` | Current-run user confirmed audible automatically; automatic voice was turned back off |
+| Fish early Stop | Counting passage rendered; native Stop returned the control to Read Aloud; subsequent measured window had no active or above-threshold render samples | Current-run user confirmed audible and stopped before forty |
 | Issued read-only principal | Actual `operator.read` hello, working `tts.status`, production-client preflight `PermissionRequired`, separate real Gateway denial, no provider invocation in either negative | Current product assemblies in a helper; not a shipped-UI refusal or Fish check |
 | Permission revoke/restore | Persisted revoke closed the original authenticated transport. Held audio could not be forwarded. Restore did not replay; a fresh explicit request rendered on a new connection | Does not prove late bytes were delivered on the revoked connection |
 | Stop before late response | Genuine successful WAV held; native Stop confirmed; unchanged bytes forwarded on the still-open original connection; measured silence; fresh request rendered on that same connection | Send completion is not direct observation of app JSON parsing; subsequent ordered recovery supports consumer-advancement inference |
@@ -21,7 +21,7 @@ All audio observers reported zero query errors. They inspect only target-PID ren
 ## Artifact map
 
 - `build-identity.json` records the frozen product build. `loaded-*-binaries.json` binds live processes to its four module hashes. Preparation-time `automaticSpeechEnabled=false` is not a claim that automatic voice stayed off during its explicit check.
-- `A-*` contains filtered native UI output, screenshots, measured Fish results and current human-confirmation status. The remote Gateway address, profiles and credentials are excluded.
+- `A-*` contains filtered native UI output, screenshots, measured Fish results and the current-run user confirmation receipt. The remote Gateway address, profiles and credentials are excluded.
 - `B/current-verified-run.json` contains the provenance-strengthened real authorization run. Positive synthesis moved the synthetic backend counter 1→2; both denials left it at 2. `B/helper-build-provenance.json` records the exact helper and product association. The broader original ledger retains earlier runs and setup attempts locally.
 - `C-correlated-events.json` preserves speech request/response identities and hashes and every connection open/close event between the first positive and final recovery. C uses a disposable real Gateway (`2026.10.10-beta.3`, `15dffe5`), a transparent relay and local synthetic OpenAI-compatible backend returning the same 128,044-byte, four-second 660 Hz WAV. It is not a Fish provider test. The relay forwards protocol bytes without rewriting authentication or speech payloads.
 - `C-outcomes.json` distinguishes permission-driven transport retirement from same-connection Stop retirement. Permission-only settings classify as `CapabilityReload`, whose existing coordinator reconnects. Native Permissions, tray and MCP writers share that production path; no permission field or normal reconnect was bypassed to manufacture a test topology.
@@ -31,6 +31,6 @@ All audio observers reported zero query errors. They inspect only target-PID ren
 
 ## Still unresolved
 
-Current human listening confirmations, maintainer ownership/decision for the default-off opt-in, dependency #1949 landing, and the required hosted CI investigation/retry. The old full-CI UI-host crash remains unclassified; a local main control also crashed, but that does not establish the same root cause. Repository-admin retry was denied by GitHub. No Diamond rating or merge readiness is claimed.
+Maintainer ownership/decision for the default-off opt-in, dependency #1949 landing, and the required hosted CI investigation/retry. The old full-CI UI-host crash remains unclassified; a local main control also crashed, but that does not establish the same root cause. Repository-admin retry was denied by GitHub. No Diamond rating or merge readiness is claimed.
 
 These files contain synthetic task data and sanitized proof only. Raw paired profiles, setup codes, credentials, histories, non-public hostnames, release binaries and private state locators are excluded.

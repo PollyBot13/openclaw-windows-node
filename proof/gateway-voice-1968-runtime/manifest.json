@@ -1,4 +1,5 @@
 {
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
   "files": [
     {
       "path": "A-after-stop-ui-filtered.txt",
@@ -31,14 +32,29 @@
       "bytes": 168
     },
     {
+      "path": "A-human-confirmation.json",
+      "sha256": "C6B85078E4F3E249219C35DB9F5A462772EECD75337937E8C1166E743D6A59F2",
+      "bytes": 874
+    },
+    {
       "path": "A-manual-ui-filtered.txt",
       "sha256": "F27A0CAC532DAEC636080151C51D3A790F442210F161929E2A786543AAB3C9C3",
       "bytes": 1013
     },
     {
       "path": "A-outcomes.json",
-      "sha256": "2F26217827D31503A11A5BD104FACEE0EBC25117E9B1FAAC1D77FF04A75F0A36",
-      "bytes": 524
+      "sha256": "C5CD1D49E0C5411EB299012E9A7DF025E5FBAFC438D0864C0711F17C42CF66A1",
+      "bytes": 594
+    },
+    {
+      "path": "authority-render-attempt001.json",
+      "sha256": "B0CD223D73B3E23A965D8C02AE7E9FF8F5B507E4DB3142941588CFB2792B4929",
+      "bytes": 5197
+    },
+    {
+      "path": "authority-render-attempt002.json",
+      "sha256": "718785381D4E7B49AE9DDD75F83DD2A45B7B417EB393161C18A55EFCE82DAFEC",
+      "bytes": 6105
     },
     {
       "path": "B/B-summary.json",
@@ -54,6 +70,11 @@
       "path": "B/helper-build-provenance.json",
       "sha256": "C02962627188D6C8D5A2A9974D01A6881D2B0822F82D243B6243797AC8354C7C",
       "bytes": 457
+    },
+    {
+      "path": "build-identity.json",
+      "sha256": "B8E63CF6432645228755460C783C268FABCD8AD6672EE84569D3D4513DFDB449",
+      "bytes": 1311
     },
     {
       "path": "C-correlated-events.json",
@@ -101,26 +122,6 @@
       "bytes": 102
     },
     {
-      "path": "README.md",
-      "sha256": "F2E2EC47D4242AD73C8DB5ACDC3068F318BCB339B217E3A7479183FDC09D423C",
-      "bytes": 5860
-    },
-    {
-      "path": "authority-render-attempt001.json",
-      "sha256": "B0CD223D73B3E23A965D8C02AE7E9FF8F5B507E4DB3142941588CFB2792B4929",
-      "bytes": 5197
-    },
-    {
-      "path": "authority-render-attempt002.json",
-      "sha256": "718785381D4E7B49AE9DDD75F83DD2A45B7B417EB393161C18A55EFCE82DAFEC",
-      "bytes": 6105
-    },
-    {
-      "path": "build-identity.json",
-      "sha256": "B8E63CF6432645228755460C783C268FABCD8AD6672EE84569D3D4513DFDB449",
-      "bytes": 1311
-    },
-    {
       "path": "cleanup.json",
       "sha256": "DE03E2B976F680DA1DD224F1F992DC7983A266751444D4DC986DCE603D601E77",
       "bytes": 345
@@ -156,6 +157,11 @@
       "bytes": 394
     },
     {
+      "path": "README.md",
+      "sha256": "0233D153F91A734B854F444069F19968178EB8CBD26F734E71AC00736C915F92",
+      "bytes": 5822
+    },
+    {
       "path": "upgrade-migration-attempt001.json",
       "sha256": "1C20EDC51045529BCA8B16D5FB86A4019234B1EC34ABF7AE679B46CF4C6BADC7",
       "bytes": 243
@@ -186,8 +192,7 @@
       "bytes": 581
     }
   ],
-  "hashRepresentation": "Exact committed Git blob bytes, also used in the downloadable package",
-  "createdUtc": "2026-11-01T13:31:32.1844137Z",
-  "claim": "Measured current-head proof; human listening confirmations pending",
-  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c"
+  "claim": "Measured current-head proof with all three current-run user listening confirmations",
+  "createdUtc": "2026-11-01T13:35:52.7239756Z",
+  "hashRepresentation": "Exact committed Git blob bytes, also used in the downloadable package"
 }

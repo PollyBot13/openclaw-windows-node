@@ -1,0 +1,25 @@
+{
+  "historicalAnswersReused": false,
+  "manual": {
+    "confirmed": true,
+    "answer": "Yes, audible",
+    "phrase": "Gateway voice test one two three"
+  },
+  "timestampMeaning": "Time this user feedback was recorded; playback times remain in the observer report",
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "automatic": {
+    "withoutReadAloud": true,
+    "confirmed": true,
+    "answer": "Yes, audible automatically",
+    "phrase": "Automatic Gateway voice confirmation. The synthetic test is complete"
+  },
+  "additionalPlaybackTriggered": false,
+  "source": "User replies to the three current-run listening questions in this Codex chat",
+  "receivedUtc": "2026-11-01T13:35:52.6669387Z",
+  "stop": {
+    "answer": "Yes, audible and stopped early",
+    "audible": true,
+    "stoppedBeforeForty": true,
+    "passage": "Fish counting test, one to forty"
+  }
+}

@@ -4,7 +4,7 @@
   "automaticVoiceRestoredOff": true,
   "manualRenderObserved": true,
   "automaticRenderObserved": true,
-  "humanAudibility": "Current-run confirmations requested and pending; historical confirmations are not reused.",
+  "humanAudibility": "Current-run user confirmed manual audibility, automatic audibility without Read Aloud, and counting audible/stopped before forty. See A-human-confirmation.json.",
   "actualUiProvider": "fish-audio",
   "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
   "countingRenderObserved": true,
