@@ -36,7 +36,6 @@ public sealed partial class VoiceSettingsPage : Page
     public VoiceSettingsPage()
     {
         InitializeComponent();
-        InitializeGatewaySpeech();
         Loaded += (_, _) =>
         {
             UpdateModelStatus();
@@ -560,7 +559,6 @@ public sealed partial class VoiceSettingsPage : Page
     private void LoadTtsSettings(SettingsManager settings)
     {
         GatewayVoiceToggle.IsOn = settings.UseGatewayVoice;
-        GatewayVoicePanel.Visibility = settings.UseGatewayVoice ? Visibility.Visible : Visibility.Collapsed;
         // Provider remains the local/node default even when delegated chat speech is enabled.
         var provider = settings.TtsProvider;
         for (int i = 0; i < TtsProviderCombo.Items.Count; i++)
@@ -1136,6 +1134,13 @@ public sealed partial class VoiceSettingsPage : Page
             CurrentApp.Settings.TtsWindowsVoiceId = voiceId;
             CurrentApp.Settings.Save();
         }
+    }
+
+    private void OnGatewayVoiceToggled(object sender, RoutedEventArgs e)
+    {
+        if (_suppressEvents || CurrentApp.Settings is not { } settings) return;
+        settings.UseGatewayVoice = GatewayVoiceToggle.IsOn;
+        settings.Save();
     }
 
     private void OnPreviewVoiceClick(object sender, RoutedEventArgs e) =>

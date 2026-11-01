@@ -5,7 +5,7 @@ namespace OpenClawTray.Chat;
 public enum GatewaySpeechPhase { Idle, Synthesizing, Playing, Completed, Failed }
 
 public sealed record GatewaySpeechPlaybackState(
-    GatewaySpeechPhase Phase, string? Provider = null, string? ConfiguredProvider = null, GatewaySpeechFailure? Failure = null);
+    GatewaySpeechPhase Phase, string? Provider = null, GatewaySpeechFailure? Failure = null);
 
 /// <summary>
 /// Owns pending delegated speech across Stop, mute, target and connection changes.
@@ -19,7 +19,6 @@ public sealed class GatewaySpeechPlayback : IDisposable
     private string? _target;
     private CancellationTokenSource? _active;
     private long? _activeEpoch;
-    private bool _muted;
     private bool _disposed;
     public event Action<GatewaySpeechPlaybackState>? Changed;
 
@@ -45,15 +44,6 @@ public sealed class GatewaySpeechPlayback : IDisposable
             if (string.Equals(target, _target, StringComparison.Ordinal)) return;
             _target = target;
             Retire();
-        }
-    }
-
-    public void SetMuted(bool muted)
-    {
-        lock (_gate)
-        {
-            _muted = muted;
-            if (muted) Retire();
         }
     }
 
@@ -83,11 +73,25 @@ public sealed class GatewaySpeechPlayback : IDisposable
         CancellationTokenSource operation;
         lock (_gate)
         {
-            if (_disposed || !_playbackAllowed() || (!manual && _muted)) return;
+            if (_disposed || cancellationToken.IsCancellationRequested || !_playbackAllowed()) return;
             if (!manual && (_target is null || (responseTarget is not null
                 && !string.Equals(responseTarget, _target, StringComparison.Ordinal)))) return;
             client = _client;
             epoch = client?.SessionMutationConnectionEpoch;
+            try
+            {
+                if (client is null || epoch is null)
+                    throw new GatewaySpeechException(GatewaySpeechFailure.Disconnected);
+                GatewaySpeech.RequireAccess(client, epoch.Value);
+                if (string.IsNullOrWhiteSpace(text) || text.Length > GatewaySpeech.MaximumTextLength)
+                    throw new GatewaySpeechException(GatewaySpeechFailure.TextTooLong);
+            }
+            catch (GatewaySpeechException ex)
+            {
+                // Rejected replacements cannot interrupt current speech or its UI.
+                if (_active is null) Changed?.Invoke(new(GatewaySpeechPhase.Failed, Failure: ex.Failure));
+                return;
+            }
             Retire();
             target = _target;
             operation = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -98,24 +102,15 @@ public sealed class GatewaySpeechPlayback : IDisposable
         try
         {
             token.ThrowIfCancellationRequested();
-            if (client is null || epoch is null)
-                throw new GatewaySpeechException(GatewaySpeechFailure.Disconnected);
-            GatewaySpeech.RequireAccess(client, epoch.Value);
-            if (string.IsNullOrWhiteSpace(text) || text.Length > GatewaySpeech.MaximumTextLength)
-                throw new GatewaySpeechException(GatewaySpeechFailure.TextTooLong);
             Publish(operation, new(GatewaySpeechPhase.Synthesizing));
-            var status = await client.GetSpeechStatusAsync(epoch.Value, token)
-                .WaitAsync(TimeSpan.FromMilliseconds(GatewaySpeech.StatusTimeoutMs), token).ConfigureAwait(false);
-            EnsureCurrent(operation, client, epoch.Value, target);
-            if (!status.IsReady) throw new GatewaySpeechException(GatewaySpeechFailure.ProviderUnavailable);
             var audio = await client.SynthesizeSpeechAsync(text, epoch.Value, token)
                 .WaitAsync(TimeSpan.FromMilliseconds(GatewaySpeech.SynthesisTimeoutMs), token).ConfigureAwait(false);
-            EnsureCurrent(operation, client, epoch.Value, target);
-            Publish(operation, new(GatewaySpeechPhase.Playing, audio.Provider, status.Provider));
+            EnsureCurrent(operation, client, epoch.Value, target, cancellationToken);
+            Publish(operation, new(GatewaySpeechPhase.Playing, audio.Provider));
             Task playback;
             lock (_gate)
             {
-                EnsureCurrent(operation, client, epoch.Value, target);
+                EnsureCurrent(operation, client, epoch.Value, target, cancellationToken);
                 playback = play(audio, token);
             }
             try
@@ -125,13 +120,13 @@ public sealed class GatewaySpeechPlayback : IDisposable
             catch (OperationCanceledException) { throw; }
             catch (TimeoutException) { throw; }
             catch (Exception) { throw new GatewaySpeechException(GatewaySpeechFailure.PlaybackFailed); }
-            Publish(operation, new(GatewaySpeechPhase.Completed, audio.Provider, status.Provider));
+            Publish(operation, new(GatewaySpeechPhase.Completed, audio.Provider));
         }
         catch (OperationCanceledException) when (token.IsCancellationRequested)
         {
             lock (_gate)
             {
-                // Caller cancellation (for example unloading Preview) is terminal.
+                // Caller cancellation (for example stopping Read Aloud) is terminal.
                 // Stop/switch/disposal already detached this operation and own their state.
                 if (!_disposed && ReferenceEquals(_active, operation))
                     Changed?.Invoke(new(GatewaySpeechPhase.Idle));
@@ -164,13 +159,13 @@ public sealed class GatewaySpeechPlayback : IDisposable
         }
     }
 
-    private void EnsureCurrent(CancellationTokenSource operation, IOperatorGatewayClient client, long epoch, string? target)
+    private void EnsureCurrent(CancellationTokenSource operation, IOperatorGatewayClient client, long epoch, string? target, CancellationToken callerCancellation)
     {
         lock (_gate)
         {
             // A settings save can still be pending when the awaited response
             // arrives. Check current permission before admitting the next effect.
-            if (!_playbackAllowed()) operation.Cancel();
+            if (callerCancellation.IsCancellationRequested || !_playbackAllowed()) operation.Cancel();
             operation.Token.ThrowIfCancellationRequested();
             if (_disposed || !ReferenceEquals(_active, operation) || !ReferenceEquals(_client, client)
                 || !string.Equals(_target, target, StringComparison.Ordinal)
