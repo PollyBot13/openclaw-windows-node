@@ -27,8 +27,8 @@
     },
     {
       "path": "README.txt",
-      "bytes": 3291,
-      "sha256": "E297C9533261FA695631734A52624ABE217048998B157F113570E45B00D06B9F"
+      "bytes": 3290,
+      "sha256": "9B4CCD841D9F2C05ACDC46FB95322403DC118A149B74C7C3BC388229DBBE4991"
     },
     {
       "path": "RUBBER-DUCK.txt",
@@ -412,10 +412,10 @@
     },
     {
       "path": "PUBLISHED-SOURCE-CORRESPONDENCE.json",
-      "bytes": 886,
-      "sha256": "2283FD16EBE7FB1C3F537E1DCA73867DF073C96F0A38D54359A9464CFC868B11"
+      "bytes": 1198,
+      "sha256": "3D1CB4A500362B95CE8CDE1C96809BF79541A7589401F2FF013299AD52B9AC27"
     }
   ],
-  "publishedSourceHead": "8815f4d5649bb97edbec41ff549c1d8dfcec8c33",
+  "publishedSourceHead": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
   "testedSourceTreeCorrespondence": true
 }
