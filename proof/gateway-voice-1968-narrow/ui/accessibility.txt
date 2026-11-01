@@ -1,0 +1,195 @@
+Window: "OpenClaw", App: OpenClaw.Tray.WinUI.exe.
+	0 window OpenClaw Secondary Actions: Raise
+		1 pane Non Client Input Sink Window
+		2 pane AppWindow Custom Title Bar
+			3 button Minimize ID: Minimize
+			4 button Maximize ID: Maximize
+			5 button Close ID: Close
+		6 pane
+			7 pane
+				8 title bar OpenClaw ID: WorkspaceTitleBar
+					9 image
+					10 text OpenClaw ID: PART_TitleText
+				76 custom Main navigation ID: NavView
+					77 window Secondary Actions: Raise ID: PaneRoot
+						78 pane ID: MenuItemsScrollViewer
+							79 group Main navigation ID: MenuItemsHost
+								80 list item (selectable) Chat ID: SettingsNavChat
+									81 image
+								82 text Gateway ID: HeaderText
+								83 list item (selectable) Connection
+									84 image
+								85 list item (selectable) Sessions ID: NavSessions
+									86 image
+								87 list item (selectable) Skills ID: NavSkills
+									88 image
+								89 list item (selectable) Channels ID: NavChannels
+									90 image
+								91 list item (selectable) Instances ID: NavInstances
+									92 image
+								93 list item (selectable) Cron ID: NavCron
+									94 image
+								95 list item (selectable) Advanced ID: NavAdvanced
+									96 image
+								97 text This Computer ID: HeaderText
+								98 list item (selectable) Local AI
+									99 image
+								100 list item (selectable) Voice & Audio
+									101 image
+								102 list item (selectable) Permissions
+									103 image
+								104 list item (selectable) Sandbox
+									105 image
+						106 pane ID: FooterItemsScrollViewer
+							107 group ID: FooterMenuItemsHost
+								108 button Connection status Description: Connected ID: SettingsConnectionStatus
+									109 text Connected ID: StatusPillText
+								110 list item (selectable) Diagnostics ID: SettingsNavDiagnostics
+									111 image
+								112 list item (selectable) Settings ID: SettingsNavSettings
+									113 image
+					114 pane
+						115 text Voice & Audio ID: VoiceSettingsPageMarker
+						116 text Configure speech-to-text and voice interaction settings. All speech processing runs locally on your device. ID: PageDescriptionText
+						117 text Speech Model ID: ModelHeaderText
+						118 text Speech-to-text is disabled. Configure models here, then enable the capability in Permissions when you're ready.
+						119 link Open Permissions
+						120 text Voice input is not ready until at least one speech model is downloaded. ID: ModelRequirementText
+						121 combo box Model Size ID: ModelCombo
+						122 button Download Model ID: DownloadButton
+							123 text Download Model ID: DownloadButtonText
+						124 text ⬇️ Download required ID: ModelStatusText
+						125 text Language ID: LanguageHeaderText
+						126 combo box Voice language ID: LanguageCombo
+						127 text Voice Chat ID: VoiceChatHeaderText
+						128 slider (settable, float) Silence timeout (seconds) Value: 2.5 ID: SilenceSlider
+							129 text Silence timeout (seconds)
+						130 toggle switch Read responses aloud ID: TtsResponseToggle
+						131 toggle switch Audio feedback sounds ID: AudioFeedbackToggle
+						132 text Companion Voice ID: VoiceHeaderText
+						133 text Choose the voice used when reading responses aloud. ID: VoiceDescriptionText
+						134 text Text-to-speech is disabled. Configure providers and voices here, then enable the capability in Permissions when you're ready.
+						135 link Open Permissions
+						136 toggle switch Use connected Gateway voice ID: GatewayVoiceToggle
+						137 text Chat Read Aloud and automatic replies use the Gateway's configured voice. Text is sent to the Gateway and its speech provider. Keys stay on the Gateway. Local node and MCP speech are unchanged.
+						138 text No automatic local fallback. If unavailable, turn this option off to use your local provider.
+						139 combo box Provider ID: TtsProviderCombo
+						140 combo box Voice ID: KokoroVoiceCombo
+						141 button Download Voice Pack ID: KokoroDownloadButton
+							142 text Download Voice Pack ID: KokoroDownloadButtonText
+						143 text Voice pack not downloaded yet. Click Download to fetch it (about 379 MB). ID: KokoroStatusText
+						144 text Voice packs download from GitHub releases (about 380 MB for English and Chinese, about 310 MB for Spanish). They run fully on this PC; no audio leaves your device. ID: KokoroInfoText
+						145 text Kokoro, Piper, Windows, and speech recognition run on this device. Cloud TTS providers send response text to their services for synthesis; microphone audio is not sent to them. ID: PrivacyNoteText
+						146 scroll bar (settable, float) Vertical Value: 0 ID: VerticalScrollBar
+							151 button Vertical Small Decrease ID: VerticalSmallDecrease
+							152 button Vertical Large Decrease ID: VerticalLargeDecrease
+							153 button Vertical Large Increase ID: VerticalLargeIncrease
+							154 button Vertical Small Increase ID: VerticalSmallIncrease
+				147 button Toggle navigation pane ID: SettingsTogglePane
+				148 button Search… (Ctrl+E) ID: SettingsSearch
+				149 button Back ID: SettingsBack
+				150 button (disabled) Forward ID: SettingsForward
+		56 title bar (settable, string) Value: OpenClaw
+			57 menu bar System ID: MenuBar
+				58 menu item System
+			59 button Minimize
+			60 button Maximize
+			61 button Close
+
+Document text: ```
+Chat
+Gateway
+Connection
+Sessions
+Skills
+Channels
+Instances
+Cron
+Advanced
+This Computer
+Local AI
+Voice & Audio
+Permissions
+Sandbox
+Connected
+
+Diagnostics
+Settings
+Configure speech-to-text and voice interaction settings. All speech processing runs locally on your device.
+Speech Model
+
+Speech-to-text is disabled. Configure models here, then enable the capability in Permissions when you're ready.
+Open Permissions
+Voice input is not ready until at least one speech model is downloaded.
+
+Download Model
+⬇️ Download required
+Language
+Voice Chat
+Silence timeout (seconds)
+Read responses aloud
+Off
+On
+Audio feedback sounds
+Companion Voice
+Choose the voice used when reading responses aloud.
+Text-to-speech is disabled. Configure providers and voices here, then enable the capability in Permissions when you're ready.
+Use connected Gateway voice
+Chat Read Aloud and automatic replies use the Gateway's configured voice. Text is sent to the Gateway and its speech provider. Keys stay on the Gateway. Local node and MCP speech are unchanged.
+No automatic local fallback. If unavailable, turn this option off to use your local provider.
+Download Voice Pack
+Voice pack not downloaded yet. Click Download to fetch it (about 379 MB).
+Voice packs download from GitHub releases (about 380 MB for English and Chinese, about 310 MB for Spanish). They run fully on this PC; no audio leaves your device.
+
+Kokoro, Piper, Windows, and speech recognition run on this device. Cloud TTS providers send response text to their services for synthesis; microphone audio is not sent to them.
+
+
+```
+
+Chat
+Gateway
+Connection
+Sessions
+Skills
+Channels
+Instances
+Cron
+Advanced
+This Computer
+Local AI
+Voice & Audio
+Permissions
+Sandbox
+Connected
+
+Diagnostics
+Settings
+Configure speech-to-text and voice interaction settings. All speech processing runs locally on your device.
+Speech Model
+
+Speech-to-text is disabled. Configure models here, then enable the capability in Permissions when you're ready.
+Open Permissions
+Voice input is not ready until at least one speech model is downloaded.
+
+Download Model
+⬇️ Download required
+Language
+Voice Chat
+Silence timeout (seconds)
+Read responses aloud
+Off
+On
+Audio feedback sounds
+Companion Voice
+Choose the voice used when reading responses aloud.
+Text-to-speech is disabled. Configure providers and voices here, then enable the capability in Permissions when you're ready.
+Use connected Gateway voice
+Chat Read Aloud and automatic replies use the Gateway's configured voice. Text is sent to the Gateway and its speech provider. Keys stay on the Gateway. Local node and MCP speech are unchanged.
+No automatic local fallback. If unavailable, turn this option off to use your local provider.
+Download Voice Pack
+Voice pack not downloaded yet. Click Download to fetch it (about 379 MB).
+Voice packs download from GitHub releases (about 380 MB for English and Chinese, about 310 MB for Spanish). They run fully on this PC; no audio leaves your device.
+
+Kokoro, Piper, Windows, and speech recognition run on this device. Cloud TTS providers send response text to their services for synthesis; microphone audio is not sent to them.
+
+

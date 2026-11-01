@@ -1,0 +1,44 @@
+{
+  "repository": "openclaw/openclaw",
+  "ref": "15dffe5",
+  "completeFiles": [
+    {
+      "path": "src/gateway/methods/core-descriptors.ts",
+      "gitBlob": "7e1c6e01e769134e9a725d96b4d780b668600f24"
+    },
+    {
+      "path": "src/gateway/server-methods.ts",
+      "gitBlob": "0f69db062c84f7911885394d07d9fc0cd34cfa2c"
+    },
+    {
+      "path": "src/gateway/operator-scopes.ts",
+      "gitBlob": "20a8d1c6db93ea773de06f2e921c108a61c6e956"
+    },
+    {
+      "path": "src/gateway/method-scopes.ts",
+      "gitBlob": "16e8e3736a761442361d0d77f2d9f1e9f836bf51"
+    },
+    {
+      "path": "src/gateway/server-methods/request-authorization.ts",
+      "gitBlob": "0a135297e96e78c1d460e0485759f76969a3509c"
+    },
+    {
+      "path": "src/gateway/methods/core-method-policy.ts",
+      "gitBlob": "240720995c10c26f1f3d15364040ec257facb903"
+    },
+    {
+      "path": "src/shared/operator-scope-compat.ts",
+      "gitBlob": "78f8a3f4861c44f447781b32f0fa8aa22761b589"
+    },
+    {
+      "path": "src/gateway/methods/descriptor.ts",
+      "gitBlob": "f36351dfe5d1db8430f3f467d35190344633deb1"
+    },
+    {
+      "path": "src/gateway/server-methods/method-authorization.ts",
+      "gitBlob": "330e758ef2947146e0ae36307fd8014cebeadeb4"
+    }
+  ],
+  "gitBlobBytesVerified": true,
+  "purpose": "Close source-review input gap for actual tts.speak operator.write mapping and pre-dispatch scope enforcement; no runtime or pairing certification."
+}

@@ -1,0 +1,14 @@
+{
+  "initialBuild": "NuGet vulnerability lookup unavailable under restricted network; normal host retry kept checks enabled and passed all5 targets.",
+  "stalledRunner": "One verified task-owned runner stopped before dotnet launched; zero execution, retained locally.",
+  "redControls": {
+    "rejectedMuteLease": 1,
+    "stopMuteRecovery": 2,
+    "staleAndParentCancellationAdmission": 2,
+    "invalidReplacement": 2
+  },
+  "fixtureCorrections": "Permission-playing fixture now uses actual coordinator generation token; barrier timeout fails; dependency capture test explicitly enables TTS before speech.",
+  "originalFailures": "Shared symlink privilege failure reproduced previously on unchanged main. Earlier LocalAI timeout remains unclassified; focused diagnostic and later complete serial Tray passed. Earlier native fixture failure retained before setup correction.",
+  "reviewPreparation": "Initial allocation omitted whole existing owner sources and stopped incomplete, with both actual P2 findings retained/fixed. Complete-source allocation then lacked actual Gateway scope mapping; final review supplied9 complete public Git-blob-verified authorization files. Over-budget dry runs started no reviewers. Script over the tool input-size limit did not run; individual complete-file operations stayed within that limit.",
+  "notClaimed": "No retries/skips/assertions/timeouts/security rules changed to erase failures. No fresh Fish/audibility/late-delivery/Axe/installer/ARM64/whole-pool proof."
+}

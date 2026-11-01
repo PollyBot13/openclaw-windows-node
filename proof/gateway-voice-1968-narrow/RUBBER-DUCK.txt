@@ -1,0 +1,13 @@
+Independent collaboration role voice_cancel_analysis reviewed narrowed production and proof plan against integration base331da8fb. Actual tool: collaboration followup_task; model identity not independently verified. Separate from canonical source review and runtime execution.
+
+Verified integration findings: rejected background replies acquired capture mute; global owner Stop could cancel fresh recovery; pre-canceled calls could retire newer speech; asynchronous linked-token propagation could admit stale audio; mute admission needed the coordinator generation lock. Each was verified in source; red controls recorded1 rejected-lease failure,2 Stop/mute recovery failures,2 stale-admission failures.
+
+Production fixes reviewed at f1dbc5dc: delegated lease begins only at admitted native playback, one coordinator mute policy owner, parent-generation-only globalStop, pre-canceled admission returns beforeRetire, original caller cancellation checked after await and beforeplay. Reviewer found no further substantiated production defect within this bounded scope.
+
+Reviewer also found two fixture errors: direct substituted playback lacked actual coordinator parent token; cancellation barrier could expire silently. Both corrected and independently read back at18b16886. Subsequent3caf7b61 adds only explicit TTSpermission to an existing dependency test setup; production source unchanged. No claim this followup was a new source-review execution under3caf metadata. Canonical review separately targets3caf.
+
+Native/UI limits: actual coordinator persistence and real PlaybackMuteState exercised with substituted external transport/player; no microphone/device assertion. Final screenshot shows opt-in/disclosure in disposable synthetic-Gateway app; this does not establish fresh Fish/audibility/late-delivery or whole-pool proof. Old preview/status/relay evidence remains historical.
+
+Separate diagnosis: LocalAI availability timeout occurred before any eligibility/action assertion. Test, viewmodel, pure eligibility and dispatcher unchanged against main/integrationbase. Fixed probe returns immediately viaTask.Run; no identified changed-test global settings effect. Exact isolated test passed, which does not classify or erase original failure. No baseline/flakiness claim.
+
+Canonical incomplete-attempt feedback additionally identified invalid replacement retiring active speech and disclosure hidden until opt-in. Both findings verified; replacement red control failed2/2 on old implementation. Fixed in c98608cf: validate access/text before retirement, preserve active state on rejection; disclosure now always visible before opt-in, with fresh default-off UI proof. Earlier incomplete review retained and not counted clean.

@@ -1,0 +1,17 @@
+{
+  "repository": "openclaw/openclaw-windows-node",
+  "pr": 1968,
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "tree": "1881b78edf3334d473e155733c3e8f58e4b94eca",
+  "previousHead": "62cbade561e68a5ae01fd2e0e18b7d1da80bc421",
+  "main": "a4dd026cc5f85a444a0fcd05eef5b86282dbda8c",
+  "dependency": {
+    "pr": 1949,
+    "head": "0c6c5987c5d13ce5f45f079d50b73e6ea6d45700"
+  },
+  "integrationBase": "331da8fb1c8559ee2944dbdbe1d9b7a2fab39cc2",
+  "sourceReview": "canonical-review-3;6/6 complete P0-P3 assignments, scoped-clean; no fallback",
+  "helperSha256": "EA4D3415094D50A670F28A1EE092E928A9DBCF7327103014C3A9F909D9A6EF17",
+  "originalReviewReportSha256": "CC9E91EBAFA8A0B26B03444F1F75F7D65CA0762437BA2C58E885CB1C9F104F59",
+  "boundaries": "Sanitized allowlisted summaries and focused current UI only. Raw TRX/logs/fixture profiles/auth headers/tokens, binaries and full external source references remain local. Native rendering, source review and tests are distinct claims."
+}

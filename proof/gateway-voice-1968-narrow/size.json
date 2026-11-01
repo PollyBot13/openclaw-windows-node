@@ -1,0 +1,36 @@
+{
+  "before": {
+    "files": 34,
+    "added": 2060,
+    "deleted": 45,
+    "productionAdded": 857,
+    "testsAdded": 945,
+    "localizationAdded": 132,
+    "docsAdded": 126
+  },
+  "after": {
+    "docs": {
+      "files": 2,
+      "added": 59,
+      "deleted": 0
+    },
+    "production": {
+      "files": 18,
+      "added": 615,
+      "deleted": 42
+    },
+    "localization": {
+      "files": 6,
+      "added": 90,
+      "deleted": 0
+    },
+    "tests": {
+      "files": 9,
+      "added": 1001,
+      "deleted": 6
+    }
+  },
+  "comparisonBase": "331da8fb1c8559ee2944dbdbe1d9b7a2fab39cc2",
+  "source": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "dependencyExcluded": true
+}

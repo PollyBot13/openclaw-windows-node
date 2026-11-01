@@ -1,0 +1,20 @@
+{
+  "GatewaySpeechTests": {
+    "total": 20,
+    "outcomes": {
+      "Passed": 20
+    }
+  },
+  "GatewaySpeechPlaybackTests": {
+    "total": 25,
+    "outcomes": {
+      "Passed": 25
+    }
+  },
+  "GatewaySpeechPermissionTests": {
+    "total": 8,
+    "outcomes": {
+      "Passed": 8
+    }
+  }
+}

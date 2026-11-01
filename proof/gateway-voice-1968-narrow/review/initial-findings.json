@@ -1,0 +1,58 @@
+{
+  "status": "incomplete; stopped after verified input-allocation omission; no clean source review",
+  "rootProcessStopped": 30532,
+  "completedReports": [
+    {
+      "completion": "incomplete",
+      "findings": [],
+      "explanation": "No actionable defect is demonstrated in the six assigned change units. The supplied changes enforce method/scope/epoch admission, bound decoded audio, sanitize speech failures, add request cancellation, avoid client retries/fallback, and default the persisted opt-in to false. Assessment remains incomplete: the supplied client hunks omit the authenticated handshake population of granted scopes/methods/epochs and portions of request registration, correlation and error logging. The actual PR1949 mute-lease, parent-cancellation and native-admission integration is also absent. These required contracts cannot be verified from the available evidence. This is a source assessment only; no project code or tests were executed."
+    },
+    {
+      "completion": "incomplete",
+      "findings": [
+        {
+          "title": "[P2] Validate replacement speech before retiring active playback",
+          "body": "`Retire()` cancels the current operation before `RequireAccess` and text-length validation run. Consequently, an empty or oversized replacement request cancels valid speech even though the replacement is rejected without synthesis. Validate these admission conditions before retiring the active operation, so rejected calls leave existing playback intact.",
+          "priority": "P2",
+          "confidence": 0.96,
+          "category": "bug",
+          "code_location": {
+            "file_path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+            "line": 81
+          },
+          "source_attribution": null
+        }
+      ],
+      "explanation": "The supplied changes contain a rejected-call side-effect defect. All assigned change units were inspected, but the complete coordinator cancellation, deduplication, and mute-lease cleanup implementation is absent from the supplied patch/context. Retrieval of the exact committed file failed, preventing completion of the required fresh-recovery integration assessment. This is a source assessment only; no project code or tests were executed."
+    },
+    {
+      "completion": "complete",
+      "findings": [
+        {
+          "title": "[P2] Show the transmission disclosure before enabling Gateway voice",
+          "body": "The disclosure is inside a panel that remains collapsed until Gateway voice is enabled. For users who already have automatic read-aloud enabled, turning on this toggle immediately authorizes subsequent replies to be sent to the Gateway's speech provider before the additional data sharing has been explained. Keep the transmission disclosure visible while the toggle is off so users can make an informed choice before enabling it.",
+          "priority": "P2",
+          "confidence": 0.92,
+          "category": "security",
+          "code_location": {
+            "file_path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml",
+            "line": 220
+          },
+          "source_attribution": null
+        }
+      ],
+      "explanation": "The assigned persistence and compatibility changes preserve the local provider and default Gateway voice to off. The supplied integration context supports cancellation, app-scoped playback muting, finite error presentation, and native playback without local fallback. However, the data-sharing disclosure is hidden until after opt-in. This is a source assessment only; no runtime or CI checks were performed."
+    },
+    {
+      "completion": "complete",
+      "findings": [],
+      "explanation": "All added English resource keys match the supplied presentation and settings owners. The provider placeholder matches the formatting call, all mapped failures have messages, and the disclosures cover Gateway/provider text transfer and no automatic local fallback. The diff preserves existing values. This assessment covers the assigned resource change and supplied source contracts only; it does not certify runtime behavior or the wider feature."
+    },
+    {
+      "completion": "complete",
+      "findings": [],
+      "explanation": "The French additions match the supplied presentation keys and settings bindings, preserve the provider placeholder {0}, and accurately disclose text transmission, Gateway-held keys, and the absence of automatic local fallback. All finite-error messages are present, and the diff preserves existing values. This assessment covers the assigned resource change and supplied owner contracts only; it does not certify runtime behavior."
+    }
+  ],
+  "reason": "Existing changed paths supplied patch hunks but were incorrectly removed from full-source contexts. Protocol reviewer lacked full handshake/correlation implementation; global prompt also demanded dependency integration from protocol assignment. No findings waived; retry supplies complete sources with scoped obligations."
+}

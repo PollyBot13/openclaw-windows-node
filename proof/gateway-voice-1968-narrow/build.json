@@ -1,0 +1,198 @@
+{
+  "name": "reviewed-build",
+  "startedUtc": "2026-11-01T09:52:23.6600914Z",
+  "finishedUtc": "2026-11-01T09:53:24.6466179Z",
+  "program": "USER_ROOT/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+  "arguments": [
+    "-NoProfile",
+    "-File",
+    "./build.ps1",
+    "-NoTrustRepository"
+  ],
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "dirty": [],
+  "sources": [
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "7CA35C691909B47CA5F5D213879ADE4F85BFC44A401B5521D63D85F8CD3F0059"
+    },
+    {
+      "path": "docs/GATEWAY_VOICE.md",
+      "sha256": "923427F5CCE13F0910B269FAFEF9790DC49D4264F6455EC572B489C0F8D2230D"
+    },
+    {
+      "path": "src/OpenClaw.Shared/GatewaySpeech.cs",
+      "sha256": "F503110A61E4F3C3C746CAC7E94FAC8DB1FA9C60A2318D94A76A5D7D145431F5"
+    },
+    {
+      "path": "src/OpenClaw.Shared/IOperatorGatewayClient.cs",
+      "sha256": "32BECD8AF3642894B82DC479D9BCFAD288DBB6F61351BF2CAA3B7DF1C8B1FEDA"
+    },
+    {
+      "path": "src/OpenClaw.Shared/OpenClawGatewayClient.cs",
+      "sha256": "07B41EADE91F53E59A631ECFA0E9CFB2B96129CF80B0921E1649B4E93C753292"
+    },
+    {
+      "path": "src/OpenClaw.Shared/OpenClawGatewayClient.Speech.cs",
+      "sha256": "4130DB4E4B0942FED88B589581D3B2A8FD6B4FCCA83B2BE2AE907384A46A88D1"
+    },
+    {
+      "path": "src/OpenClaw.Shared/SettingsData.cs",
+      "sha256": "CF95E5CF33ABDAC65AEF849719001921EB459F66E8ED1AEA2DE386D7B759A785"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/App.AppShutdownCoordinator.cs",
+      "sha256": "4C0E0238765ED627FF52BCDFFD8C5B0F34D1CFA976B51C207D789AF6D5B5F6DE"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/App.xaml.cs",
+      "sha256": "E48EA768362AAF4D366481BF3CA3E519468EB5A741B4E0BCF40D47222CBE29C1"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerController.cs",
+      "sha256": "6FE90267A2F5A12F33E3E0740C07AB5285BE593A2CDAF8F612A302DBD05441A4"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerHostActions.cs",
+      "sha256": "95AE19D919BF256396CED79AC56D057EB8E990C3A3002F3CE15492B838B4403C"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/ChatComposerSession.cs",
+      "sha256": "B7EBF7210CC3723517E3C3216ED0E5802D783ADFE5C9B62CD67F5C0C27B6FE68"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPlayback.cs",
+      "sha256": "812AB18000D275F520F154654BD17CFEB33E6255004BF35312EA7FFE0DBD12C3"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/GatewaySpeechPresentation.cs",
+      "sha256": "FDC84B60BE99DC19AE541FB93341F7CA6D0CA6FC401C3AAA67996E51DDB38AAC"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/OpenClawChatCoordinator.cs",
+      "sha256": "2824485B73DCF739DA29826EA2DDF22955A11FA89D4EF34365B52776A31D728E"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Chat/ReactorChatHostExtensions.cs",
+      "sha256": "0F176F90A394A90F340D41A046B13CBB1F4D43EDD234F555F1C8263FEF6C49DB"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml",
+      "sha256": "19EEE8B43B019F6584C867BB1E4722760925DA85B30370DC02A4AB933BF10F65"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml.cs",
+      "sha256": "21FF524C7F9371ACE1FB1341AFDE96420514A23749325EDA8106A8CE22E9CC56"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml",
+      "sha256": "A68C9A5055CC40D715F8CC5BE6FF480D3198D60427FC4608C4BA7B70E8BE9B93"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs",
+      "sha256": "CF234FDEDA845277CE1745AB7E7539D8C503052568BF0F8455395705F875250D"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/AudioPipeline.cs",
+      "sha256": "CFDEF5D3C183D1354DD5992E81A6824D02FAF8111DA83052BCE05089BECBC387"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/NodeService.cs",
+      "sha256": "51922B83F67E4241D4142B8B766614528688339D8C56AEBAC730CC5DB5350663"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/PlaybackMuteState.cs",
+      "sha256": "2523A2C755AEB62E5312E52F3F7E22B8448812533031075F9E066D8BFF3FEDBF"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/SettingsManager.cs",
+      "sha256": "C578F68A027DC16F2530A73056C65F00E09903039AC402F3DD7949210DE1F0D4"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/TextToSpeech/TextToSpeechService.cs",
+      "sha256": "42A80E46F8AFA7C354E1D38153E2C1147151E924F1953E5921C42F88D8E3D4FE"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Services/VoiceService.cs",
+      "sha256": "4FD3BFB439A50BA844B69004FC01E45C827D30FAF731F363491BD9B9BF897BDF"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw",
+      "sha256": "03839C7CD716E7A3A57965BB84D413C4E24FD9837298CFD621809F2D07FB0905"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw",
+      "sha256": "90278164AC3A9D21E826B4060B83762841215E38651ABFD1F1BA010115B8483B"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw",
+      "sha256": "4E62A38BA21AFED803E76616E7961EA5CE9AAF010EA90E5D7BD587E6D932856B"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/pt-br/Resources.resw",
+      "sha256": "4D2E7145E717B647C937CBAEE4119B535700BB6ADA3A3F44F237848153E9F38B"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/zh-cn/Resources.resw",
+      "sha256": "B419BDFB3B4071E937F37108644BD1122825B7928DAC2CF20DE0545EB43E713A"
+    },
+    {
+      "path": "src/OpenClaw.Tray.WinUI/Strings/zh-tw/Resources.resw",
+      "sha256": "3DE5D9498BCE8B4FC9AEAB0E7D7DCB861C86509D86463F529AEEB5822CDD9795"
+    },
+    {
+      "path": "tests/OpenClaw.Shared.Tests/GatewaySpeechTests.cs",
+      "sha256": "63821176FB5CF677685138FBC578DA1D9A966D119FA2232636EE34569E3015B8"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/ChatComposerControllerTests.cs",
+      "sha256": "E04AED7C47664120EAD199368EEA8C527E7E6D4C7C0D1776F30C7A267312E95B"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/ChatComposerSessionTests.cs",
+      "sha256": "EB8639703D613192A6B8311468B00B05B149B339611FF759113E0D0421991808"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/GatewaySpeechPlaybackTests.cs",
+      "sha256": "20E5A65A48833DBE48741018565E748C4EB76D84BCCF291950F6159055276846"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/OpenClaw.Tray.Tests.csproj",
+      "sha256": "5B524C56C4A0169E020FCFC34CD95A12641D340D38B093A0A445DCA1EC866111"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/PlaybackMuteStateTests.cs",
+      "sha256": "3FB580007E4CFD009DCB163851A432079E4F4C02E207F138F9A73CD69FA5E274"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/SettingsRoundTripTests.cs",
+      "sha256": "D034B8FF04CA631D1FEB25C1EE8BFB0B0C0F762E44637EB863535E029AFCA0AE"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.Tests/SpeechInputContractTests.cs",
+      "sha256": "758934676457A0D99FFA3CEE4E9B59DD2AC6E0E467528A600346568B1EE9BF04"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.UITests/AudioPipelineFirstAudioTimeoutTests.cs",
+      "sha256": "FE8E7ACBE95509E9BE00E5F4D19D03D06B0CBB8EB1258E9922967ADCCE00C681"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.UITests/ChatPlaybackMutingTests.cs",
+      "sha256": "523C08050AA21BE6A62A871B78CA5F310F5792FF9AD3B4A6ED6750DA4FC47D6B"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.UITests/GatewaySpeechPermissionTests.cs",
+      "sha256": "9A33E18409A52B8EA22D7AC479F5BA01883B18C75BEB1A8BE8E3678560193900"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.UITests/SetupNativeChatWarningTests.cs",
+      "sha256": "F5849361865EA2A598AAFA30E512C11C2098ED5E6B8B132A59FEF36467F0B595"
+    },
+    {
+      "path": "tests/OpenClaw.Tray.UITests/VoiceServicePlaybackMutingTests.cs",
+      "sha256": "251F36A007481067045601D9E3AEA939EAEE8A9E60F590FEC3A9EC18CF5E3675"
+    }
+  ],
+  "exitCode": 0,
+  "profileIsolation": "fresh temporary data/appdata/localappdata roots; normal profile not used"
+}

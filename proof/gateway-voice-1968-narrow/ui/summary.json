@@ -1,0 +1,21 @@
+{
+  "head": "c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "tree": "1881b78edf3334d473e155733c3e8f58e4b94eca",
+  "build": "reviewed-build",
+  "pid": 41716,
+  "launchExeSha256": "83004C04D8BF12307825A4CE453222CF30A29EA42F8D8C01CF9EC3157C7735C5",
+  "launchAssemblySha256": "ED6EE6EA1E45013347181DE9779880AA45A348AC0866BF0B0B6D0DE55448ECC8",
+  "version": "2026.10.8-pollybot13-gateway-voice-successor-1915.1+193.Branch.pollybot13-gateway-voice-successor-1915.Sha.c98608cf0dd934d3a29ff79111ec2c65da6f8a4c.c98608cf0dd934d3a29ff79111ec2c65da6f8a4c",
+  "architecture": "X64",
+  "settings": {
+    "UseGatewayVoice": false,
+    "NodeTtsEnabled": false,
+    "NodeSttEnabled": false,
+    "EnableNodeMode": false,
+    "VoiceTtsEnabled": false
+  },
+  "observed": "Actual Gateway voice toggle Off with transmission and no-local-fallback disclosures already visible; no readiness/preview controls. Captured with TTS/STT/node disabled.",
+  "limits": "Isolated synthetic Gateway UI only; no fresh audio/Fish/Axe/late-delivery/microphone or whole-pool proof. Recorded launch and all4 loaded product modules match build files; manual source/build association, not signed attestation.",
+  "windowId": 18878270,
+  "loadedModuleHashesMatchedCurrentBuild": true
+}
